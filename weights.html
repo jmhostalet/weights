@@ -10,7 +10,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{--bg:#F4F5FA;--card:#fff;--ink:#20232E;--ink-soft:#73798D;--border-soft:#ECEDF4;--primary:#0FBF8F;--primary-dark:#087D5E;--primary-soft:#E3F8F1;--purple:#8B5CF6;--danger:#D72D55;--radius-lg:22px;--radius-md:14px;--shadow-card:0 2px 10px #20232e0d,0 10px 24px -12px #20232e1a}
-*{box-sizing:border-box}html,body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,sans-serif;-webkit-font-smoothing:antialiased}button,input,select{font:inherit}button{cursor:pointer}button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid var(--primary);outline-offset:3px}h1,h2,h3,.num{font-family:Poppins,sans-serif}button{touch-action:manipulation}input,select{font-size:16px}.app{max-width:640px;margin:auto;min-height:100dvh}header{padding:20px 20px 0}.brand{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px}.brand-id{display:flex;align-items:center;gap:10px}h1{font-size:21px;letter-spacing:-.01em;margin:0;font-weight:800}.logo{display:grid;place-items:center;background:var(--primary);color:white;border-radius:9px;width:32px;height:32px}.icon-button{display:grid;place-items:center;background:white;border:0;border-radius:50%;width:38px;height:38px;color:var(--ink-soft);box-shadow:var(--shadow-card)}svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}.day-strip-wrap{display:flex;align-items:center;gap:3px;margin-bottom:18px}.day-strip{display:flex;overflow:auto;gap:8px;flex:1;padding:3px 6px;scrollbar-width:none}.day-strip::-webkit-scrollbar{display:none}.day-chip{flex:none;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;width:42px;height:58px;border:0;border-radius:999px;background:white;color:var(--ink-soft);box-shadow:var(--shadow-card);position:relative}.dc-dow{font-size:9px;text-transform:uppercase;font-weight:600}.dc-num{font-size:15px;font-weight:700}.day-chip.is-today{box-shadow:inset 0 0 0 2px var(--primary)}.day-chip.is-selected{background:var(--ink);color:white;box-shadow:none}.day-chip.has-data:after{content:'';width:4px;height:4px;border-radius:50%;background:var(--primary);position:absolute;bottom:6px}.nav-arrow{border:0;background:none;color:var(--ink-soft);padding:7px;font-size:22px}main{padding:0 20px 30px}.day-date{font-size:14px;color:var(--ink-soft);margin:0 0 16px}.facts{background:white;border-radius:var(--radius-lg);padding:22px 18px;box-shadow:var(--shadow-card);position:sticky;top:8px;z-index:2}.eyebrow{font-size:11px;text-transform:uppercase;letter-spacing:.06em;font-weight:700;color:var(--ink-soft)}.week-row{display:flex;justify-content:space-between;align-items:center;gap:10px}.week-row strong{font-size:13px;color:var(--primary-dark)}.volume{text-align:center;padding:20px 0}.volume .num{font-size:36px;font-weight:800;line-height:1.2;letter-spacing:-1px}.volume .unit{font-size:15px;color:var(--ink-soft)}.volume p{font-size:12px;color:var(--ink-soft);margin:5px 0 0}.stats{display:flex;border-top:1px solid var(--border-soft);padding-top:16px}.stat{flex:1;text-align:center}.stat+.stat{border-left:1px solid var(--border-soft)}.stat span{display:block;font-size:12px;color:var(--ink-soft);margin-bottom:5px}.stat strong{font:600 17px Poppins,sans-serif}.section-heading{display:flex;justify-content:space-between;align-items:center;margin:25px 0 14px}h2{font-size:17px;margin:0}.subtle{font-size:12px;color:var(--ink-soft)}.machine{background:white;border-radius:var(--radius-lg);box-shadow:var(--shadow-card);padding:18px;margin-bottom:14px}.machine-head{display:flex;align-items:center;gap:11px;margin-bottom:16px}.machine-icon{width:38px;height:38px;background:var(--primary-soft);color:var(--primary-dark);border-radius:12px;display:grid;place-items:center}.machine-icon svg{width:30px;height:30px;stroke-width:1.6}.machine-icon{flex-shrink:0}.machine-title{flex:1}.machine h3{font-size:14px;margin:0 0 3px}.machine-total{font-size:11px;color:var(--ink-soft)}.remove{border:0;background:none;color:var(--ink-soft);padding:8px;display:grid;place-items:center}.remove:hover{color:var(--danger)}.set-head,.set-row{display:grid;grid-template-columns:32px 1fr 1fr 32px;gap:10px;align-items:center}.set-head{font-size:10px;text-transform:uppercase;font-weight:600;letter-spacing:.04em;color:var(--ink-soft);margin-bottom:8px}.set-row{margin-bottom:9px}.set-number{width:27px;height:27px;border-radius:8px;background:var(--bg);display:grid;place-items:center;font-size:12px;font-weight:600;color:var(--ink-soft)}input,select{width:100%;min-width:0;border:1px solid var(--border-soft);border-radius:10px;background:var(--bg);color:var(--ink);padding:10px 11px;min-height:42px}input:invalid{border-color:var(--danger)}.add-set{border:0;background:var(--primary-soft);color:var(--primary-dark);border-radius:10px;width:100%;padding:11px;font-size:12px;font-weight:700;margin-top:5px}.primary{border:0;background:var(--primary);color:#073D2E;border-radius:14px;padding:15px;font-weight:700;width:100%;box-shadow:var(--shadow-card)}.primary:hover{background:#0daf83}.empty{text-align:center;border:1px dashed #d7dae5;border-radius:var(--radius-lg);padding:30px 20px;margin-bottom:16px}.empty .machine-icon{margin:0 auto 12px;width:48px;height:48px}.empty h3{font-size:15px;margin:0 0 7px}.empty p{font-size:13px;color:var(--ink-soft);line-height:1.6;margin:0}.footer{text-align:center;color:var(--ink-soft);font-size:11px;line-height:1.7;margin:20px 0 0}.bike-field{display:flex;align-items:center;gap:12px}.bike-field label{font-size:13px;flex:1}.bike-field input{width:110px}.daily-total{display:flex;justify-content:space-between;align-items:center;padding:17px 4px 2px;font-size:13px}.daily-total strong{color:var(--primary-dark);font:700 18px Poppins,sans-serif}dialog{border:0;border-radius:22px;padding:24px;width:calc(100% - 32px);max-width:420px;box-shadow:0 18px 65px #20232e33}dialog::backdrop{background:#20232e66}dialog h2{margin-bottom:8px}dialog p{font-size:13px;color:var(--ink-soft);line-height:1.6}.dialog-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}.choice{display:flex;align-items:center;gap:12px;border:1px solid var(--border-soft);background:white;border-radius:14px;padding:12px;width:100%;text-align:left;margin-top:8px}.choice:hover{background:var(--primary-soft);border-color:var(--primary)}.choice b{display:block;font-size:13px}.choice small{display:block;color:var(--ink-soft);font-size:11px;margin-top:4px}.choice[disabled]{opacity:.45;cursor:default}.notice{background:#fff0f2;color:var(--danger);padding:12px;border-radius:12px;font-size:13px;margin-bottom:12px}.hidden{display:none!important}@media(max-width:360px){header{padding:16px 12px 0}main{padding:0 12px 25px}.set-head,.set-row{gap:6px;grid-template-columns:26px 1fr 1fr 28px}.volume .num{font-size:30px}}@media(prefers-reduced-motion:no-preference){.machine{animation:appear .18s ease-out}@keyframes appear{from{opacity:.5;transform:translateY(5px)}to{opacity:1;transform:none}}}
+*{box-sizing:border-box}html,body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,sans-serif;-webkit-font-smoothing:antialiased}button,input,select{font:inherit}button{cursor:pointer}button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid var(--primary);outline-offset:3px}h1,h2,h3,.num{font-family:Poppins,sans-serif}button{touch-action:manipulation}input,select{font-size:16px}.app{max-width:640px;margin:auto;min-height:100dvh}header{padding:20px 20px 0}.brand{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px}.brand-id{display:flex;align-items:center;gap:10px}h1{font-size:21px;letter-spacing:-.01em;margin:0;font-weight:800}.logo{display:grid;place-items:center;background:var(--primary);color:white;border-radius:9px;width:32px;height:32px}.icon-button{display:grid;place-items:center;background:white;border:0;border-radius:50%;width:38px;height:38px;color:var(--ink-soft);box-shadow:var(--shadow-card)}svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}.day-strip-wrap{display:flex;align-items:center;gap:3px;margin-bottom:18px}.day-strip{display:flex;overflow:auto;gap:8px;flex:1;padding:3px 6px;scrollbar-width:none}.day-strip::-webkit-scrollbar{display:none}.day-chip{flex:none;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;width:42px;height:58px;border:0;border-radius:999px;background:white;color:var(--ink-soft);box-shadow:var(--shadow-card);position:relative}.dc-dow{font-size:9px;text-transform:uppercase;font-weight:600}.dc-num{font-size:15px;font-weight:700}.day-chip.is-today{box-shadow:inset 0 0 0 2px var(--primary)}.day-chip.is-selected{background:var(--ink);color:white;box-shadow:none}.day-chip.has-data:after{content:'';width:4px;height:4px;border-radius:50%;background:var(--primary);position:absolute;bottom:6px}.nav-arrow{border:0;background:none;color:var(--ink-soft);padding:7px;font-size:22px}main{padding:0 20px 30px}.day-date{font-size:14px;color:var(--ink-soft);margin:0 0 16px}.facts{background:white;border-radius:var(--radius-lg);padding:22px 18px;box-shadow:var(--shadow-card);position:sticky;top:8px;z-index:2}.eyebrow{font-size:11px;text-transform:uppercase;letter-spacing:.06em;font-weight:700;color:var(--ink-soft)}.week-row{display:flex;justify-content:space-between;align-items:center;gap:10px}.week-row strong{font-size:13px;color:var(--primary-dark)}.volume{text-align:center;padding:20px 0}.volume .num{font-size:36px;font-weight:800;line-height:1.2;letter-spacing:-1px}.volume .unit{font-size:15px;color:var(--ink-soft)}.volume p{font-size:12px;color:var(--ink-soft);margin:5px 0 0}.stats{display:flex;border-top:1px solid var(--border-soft);padding-top:16px}.stat{flex:1;text-align:center}.stat+.stat{border-left:1px solid var(--border-soft)}.stat span{display:block;font-size:12px;color:var(--ink-soft);margin-bottom:5px}.stat strong{font:600 17px Poppins,sans-serif}.section-heading{display:flex;justify-content:space-between;align-items:center;margin:25px 0 14px}h2{font-size:17px;margin:0}.subtle{font-size:12px;color:var(--ink-soft)}.machine{background:white;border-radius:var(--radius-lg);box-shadow:var(--shadow-card);padding:18px;margin-bottom:14px}.machine-head{display:flex;align-items:center;gap:11px;margin-bottom:16px}.machine-icon{width:38px;height:38px;background:var(--primary-soft);color:var(--primary-dark);border-radius:12px;display:grid;place-items:center}.machine-icon svg{width:30px;height:30px;stroke-width:1.6}.machine-icon{flex-shrink:0}.machine-title{flex:1}.machine h3{font-size:14px;margin:0 0 3px}.machine-total{font-size:11px;color:var(--ink-soft)}.remove{border:0;background:none;color:var(--ink-soft);padding:8px;display:grid;place-items:center}.remove:hover{color:var(--danger)}.set-head,.set-row{display:grid;grid-template-columns:32px 1fr 1fr 32px;gap:10px;align-items:center}.set-head{font-size:10px;text-transform:uppercase;font-weight:600;letter-spacing:.04em;color:var(--ink-soft);margin-bottom:8px}.set-row{margin-bottom:9px}.set-number{width:27px;height:27px;border-radius:8px;background:var(--bg);display:grid;place-items:center;font-size:12px;font-weight:600;color:var(--ink-soft)}input,select,textarea{width:100%;min-width:0;border:1px solid var(--border-soft);border-radius:10px;background:var(--bg);color:var(--ink);padding:10px 11px;min-height:42px}input:invalid{border-color:var(--danger)}.add-set{border:0;background:var(--primary-soft);color:var(--primary-dark);border-radius:10px;width:100%;padding:11px;font-size:12px;font-weight:700;margin-top:5px}.primary{border:0;background:var(--primary);color:#073D2E;border-radius:14px;padding:15px;font-weight:700;width:100%;box-shadow:var(--shadow-card)}.primary:hover{background:#0daf83}.empty{text-align:center;border:1px dashed #d7dae5;border-radius:var(--radius-lg);padding:30px 20px;margin-bottom:16px}.empty .machine-icon{margin:0 auto 12px;width:48px;height:48px}.empty h3{font-size:15px;margin:0 0 7px}.empty p{font-size:13px;color:var(--ink-soft);line-height:1.6;margin:0}.footer{text-align:center;color:var(--ink-soft);font-size:11px;line-height:1.7;margin:20px 0 0}.bike-field{display:flex;align-items:center;gap:12px}.bike-field label{font-size:13px;flex:1}.bike-field input{width:110px}.daily-total{display:flex;justify-content:space-between;align-items:center;padding:17px 4px 2px;font-size:13px}.daily-total strong{color:var(--primary-dark);font:700 18px Poppins,sans-serif}dialog{border:0;border-radius:22px;padding:24px;width:calc(100% - 32px);max-width:420px;box-shadow:0 18px 65px #20232e33}dialog::backdrop{background:#20232e66}dialog h2{margin-bottom:8px}dialog p{font-size:13px;color:var(--ink-soft);line-height:1.6}.dialog-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}.choice{display:flex;align-items:center;gap:12px;border:1px solid var(--border-soft);background:white;border-radius:14px;padding:12px;width:100%;text-align:left;margin-top:8px}.choice:hover{background:var(--primary-soft);border-color:var(--primary)}.choice b{display:block;font-size:13px}.choice small{display:block;color:var(--ink-soft);font-size:11px;margin-top:4px}.choice[disabled]{opacity:.45;cursor:default}.notice{background:#fff0f2;color:var(--danger);padding:12px;border-radius:12px;font-size:13px;margin-bottom:12px}.hidden{display:none!important}@media(max-width:360px){header{padding:16px 12px 0}main{padding:0 12px 25px}.set-head,.set-row{gap:6px;grid-template-columns:26px 1fr 1fr 28px}.volume .num{font-size:30px}}@media(prefers-reduced-motion:no-preference){.machine{animation:appear .18s ease-out}@keyframes appear{from{opacity:.5;transform:translateY(5px)}to{opacity:1;transform:none}}}
 
 .sync-bar{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:0 0 14px}.sync-bar button{border:0;background:none;color:var(--primary-dark);font-weight:700;font-size:12px;padding:8px 0}.sync-bar span{font-size:11px;color:var(--ink-soft);text-align:right;overflow-wrap:anywhere}.sync-field{display:block;font-size:12px;font-weight:600;margin:16px 0 6px}.sync-check{display:flex;align-items:flex-start;gap:9px;font-size:12px;line-height:1.6;margin:16px 0}.sync-check input{width:18px;min-height:18px;flex-shrink:0}.sync-message{overflow-wrap:anywhere}.sync-links{font-size:12px;color:var(--primary-dark)}button:disabled{cursor:default;opacity:.5}#syncDialog{max-height:90dvh;overflow:auto}#conflictDialog{max-height:85dvh;overflow:auto}#conflictList .choice{line-height:1.6;font-size:12px}
 </style>
@@ -22,29 +22,31 @@
 <div class="day-strip-wrap"><button class="nav-arrow" id="previous" aria-label="Previous week">‹</button><div class="day-strip" id="days" aria-label="Choose workout day"></div><button class="nav-arrow" id="next" aria-label="Next week">›</button></div>
 </header>
 <main>
-<div class="sync-bar"><button id="openSync">☁ Sync with Google Drive</button><span id="syncStatus" role="status">Offline · saved on this device</span></div><button id="conflicts" class="add-set hidden"></button><p class="day-date" id="date"></p>
+<div class="sync-bar"><button id="openSync">Sign in with Google</button><span id="syncStatus" role="status">Offline · saved on this device</span></div><button id="importOffline" class="add-set hidden">Import offline workouts</button><button id="conflicts" class="add-set hidden"></button><p class="day-date" id="date"></p>
 <div id="notice" class="notice hidden" role="alert"></div>
 <section class="facts" aria-label="Workout summary"><div class="week-row"><span class="eyebrow">This week</span><strong id="weekVolume">0 kg lifted</strong></div><div class="volume"><div><span class="num" id="volume">0</span> <span class="unit">kg</span></div><p>Total weight lifted today</p></div><div class="stats"><div class="stat"><span>Machines</span><strong id="machineCount">0</strong></div><div class="stat"><span>Sets</span><strong id="setCount">0</strong></div><div class="stat"><span>Warm-up</span><strong id="minutes">0 min</strong></div></div></section>
 <div class="section-heading"><h2>Your workout</h2><span class="subtle" id="workoutLabel">Ready when you are</span></div>
 <div id="machines"></div>
+<div id="copyWorkoutWrap" class="hidden"><button id="copyWorkout" class="add-set">Copy last workout</button><p id="copyWorkoutSource" class="subtle"></p></div>
 <button class="primary" id="addMachine">+ Add machine</button>
 <div class="daily-total"><span>Total weight lifted</span><strong id="finalTotal" aria-live="polite">0 kg</strong></div>
 <p class="footer">Your progress, one set at a time.<br>Saved automatically in this browser.<br><span id="appVersion">Version 261109.173439</span></p>
 </main>
 </div>
 <dialog id="picker" aria-labelledby="pickerTitle"><div class="dialog-head"><h2 id="pickerTitle">Add machine</h2><button class="remove" data-close="picker" aria-label="Close">✕</button></div><p>Choose a machine for this workout.</p><div id="choices"></div></dialog>
-<dialog id="about" aria-labelledby="aboutTitle"><div class="dialog-head"><h2 id="aboutTitle">Your workout diary</h2><button class="remove" data-close="about" aria-label="Close">✕</button></div><p>Select a day, add your machines and log each set. Weights range from 20 to 70 kg in 1 kg steps.</p><p>Total weight lifted = reps × weight, added across all your sets. Warm-up bike time is recorded separately.</p><p>Your diary is saved on this device, in this browser. Clearing browser data also clears your diary.</p><button id="manageSync" class="add-set">Manage Google Drive connection</button></dialog>
+<dialog id="about" aria-labelledby="aboutTitle"><div class="dialog-head"><h2 id="aboutTitle">Your workout diary</h2><button class="remove" data-close="about" aria-label="Close">✕</button></div><p>Select a day, add your machines and log each set. Weights range from 20 to 70 kg in 1 kg steps.</p><p>Total weight lifted = reps × weight, added across all your sets. Warm-up bike time is recorded separately.</p><p>Your diary is saved on this device, in this browser. Clearing browser data also clears your diary.</p><button id="manageSync" class="add-set">Manage account</button></dialog>
 <dialog id="confirm" aria-labelledby="confirmTitle"><h2 id="confirmTitle">Remove machine?</h2><p>This will remove the machine and its sets from this day.</p><button class="primary" id="confirmRemove">Remove machine</button><button class="add-set" data-close="confirm">Keep machine</button></dialog>
 <dialog id="syncDialog" aria-labelledby="syncTitle">
-<div class="dialog-head"><h2 id="syncTitle">Google Drive sync</h2><button class="remove" data-close="syncDialog" aria-label="Close">✕</button></div>
-<p>Keep your workouts in your own Google Drive. Connect the same Google account on each device. No separate password is needed.</p>
+<div class="dialog-head"><h2 id="syncTitle">Account and sync</h2><button class="remove" data-close="syncDialog" aria-label="Close">✕</button></div>
+<p>Sign in once with Google. Firebase keeps your session active across visits until you log out or your session is revoked.</p>
 <p id="connectedAccount"></p>
-<details id="developerSetup"><summary class="sync-links">App owner setup</summary><p>The app owner configures this once. Users only connect their Google account.</p><label class="sync-field" for="clientId">Google OAuth client ID</label><input id="clientId" type="text" placeholder="…apps.googleusercontent.com" autocomplete="off" spellcheck="false"><a class="sync-links" href="GOOGLE_DRIVE_SETUP.md" target="_blank" rel="noopener">One-time setup guide</a></details>
-<p>Your data is protected by your Google account’s Drive permissions. Weights does not add its own encryption.</p>
-<label class="sync-check"><input id="uploadConsent" type="checkbox"><span>The workouts in this browser belong to the Google account I’m connecting. Merge them into that account’s diary.</span></label>
-<button id="connectDrive" class="primary">Connect Google Drive</button><button id="syncNow" class="add-set" disabled>Sync now</button><button id="lockSync" class="add-set" disabled>Disconnect</button>
-<p id="syncMessage" class="sync-message" role="status">Connect to enable sync. Google may ask you to reconnect when your session expires.</p>
+<details id="developerSetup"><summary class="sync-links">App owner setup</summary><p>Configure Firebase once before publishing. Users only sign in with Google.</p><label class="sync-field" for="firebaseConfig">Firebase web app configuration</label><textarea id="firebaseConfig" rows="7" placeholder='{"apiKey":"…","authDomain":"…","projectId":"…","appId":"…"}' spellcheck="false"></textarea><button id="saveFirebaseConfig" class="add-set">Save Firebase configuration</button><a class="sync-links" href="FIREBASE_SETUP.md" target="_blank" rel="noopener">Firebase setup guide</a></details>
+<p>Your workouts are stored in this app’s Firebase project, separated by account. The project administrator can access stored data.</p>
+<button id="connectGoogle" class="primary">Sign in with Google</button><button id="syncNow" class="add-set" disabled>Sync now</button><button id="signOut" class="add-set" disabled>Log out</button>
+<p id="syncMessage" class="sync-message" role="status">Sign in to sync across devices.</p>
 </dialog>
+<dialog id="authGate" aria-labelledby="authTitle"><h2 id="authTitle">Welcome to Weights</h2><p id="authGateMessage">Sign in with Google. Your session stays active until you log out.</p><button id="gateGoogle" class="primary" disabled>Sign in with Google</button><button id="continueOffline" class="add-set">Continue offline</button><button id="authSetup" class="add-set">Account settings</button></dialog>
+<dialog id="importDialog" aria-labelledby="importTitle"><div class="dialog-head"><h2 id="importTitle">Import offline workouts?</h2><button class="remove" data-close="importDialog" aria-label="Close">✕</button></div><p>Only continue if this browser’s offline workouts belong to your signed-in account. They will be merged into your Firebase diary. Previous Google Drive files will stay unchanged.</p><button id="confirmImport" class="primary">Import into my account</button></dialog>
 <dialog id="conflictDialog" aria-labelledby="conflictTitle"><div class="dialog-head"><h2 id="conflictTitle">Choose a workout version</h2><button class="remove" data-close="conflictDialog" aria-label="Close">✕</button></div><p>Different devices edited the same day. Choose the version to keep for each day. Every version remains in the sync history.</p><div id="conflictList"></div></dialog>
 <script>
 'use strict';
@@ -99,13 +101,26 @@ function renderDays(){
  $('days').innerHTML=Array.from({length:7},(_,i)=>{const key=shift(week,i),d=dateOf(key);return '<button class="day-chip'+(key===selected?' is-selected':'')+(key===iso(new Date())?' is-today':'')+(logs?.[key]?.length?' has-data':'')+'" data-day="'+key+'" aria-label="'+d.toLocaleDateString('en-GB',{weekday:'long',day:'numeric',month:'long',year:'numeric'})+'" aria-pressed="'+(key===selected)+'"><span class="dc-dow">'+d.toLocaleDateString('en-GB',{weekday:'short'})+'</span><span class="dc-num">'+d.getDate()+'</span></button>';}).join('');
 }
 function renderSummary(){const list=day(),volume=total(list);$('volume').textContent=number.format(volume);$('finalTotal').textContent=number.format(volume)+' kg';$('machineCount').textContent=list.length;$('setCount').textContent=list.reduce((n,m)=>n+(m.sets?.length||0),0);$('minutes').textContent=number.format(list.find(m=>m.type==='bike')?.minutes||0)+' min';let sum=0;for(let i=0;i<7;i++)sum+=total(logs?.[shift(week,i)]||[]);$('weekVolume').textContent=number.format(sum)+' kg lifted';$('workoutLabel').textContent=list.length?list.length+' machine'+(list.length===1?'':'s')+' added':'Ready when you are';for(const el of document.querySelectorAll('[data-machine-total]')){const m=list.find(m=>m.type===el.dataset.machineTotal);el.textContent=number.format(total([m]))+' kg lifted';}}
+function lastWorkoutDate(){return Object.keys(logs||{}).filter(date=>date<selected&&logs[date]?.length).sort().at(-1)||null;}
+function copyLastWorkout(){
+ if(!syncReady||syncBusy||day().length)return;
+ const source=lastWorkoutDate();if(!source)return;
+ mutate(()=>{logs[selected]=copy(logs[source]);});
+}
+function renderCopyWorkout(){
+ const source=lastWorkoutDate(),available=!!source&&!day().length&&logs!==null;
+ $('copyWorkoutWrap').classList.toggle('hidden',!available);
+ $('copyWorkout').disabled=!available||syncBusy||!syncReady;
+ $('copyWorkoutSource').textContent=available?'From '+dateOf(source).toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric'}):'';
+}
 function weightOptions(weight){return Array.from({length:51},(_,i)=>'<option value="'+(i+20)+'"'+(i+20===weight?' selected':'')+'>'+(i+20)+'</option>').join('');}
 function render(){
  renderDays();$('date').textContent=(selected===iso(new Date())?'Today · ':'')+dateOf(selected).toLocaleDateString('en-GB',{weekday:'long',day:'numeric',month:'long',year:'numeric'});
  $('machines').innerHTML=day().map(m=>{const def=MACHINES.find(t=>t.id===m.type);return '<section class="machine" data-type="'+m.type+'" aria-label="'+def.name+'"><div class="machine-head"><span class="machine-icon">'+exerciseIcon(m.type)+'</span><div class="machine-title"><h3>'+def.name+'</h3><span class="machine-total" '+(m.type!=='bike'?'data-machine-total="'+m.type+'"':'')+'>'+(m.type==='bike'?'Ease into your workout':number.format(total([m]))+' kg lifted')+'</span></div><button class="remove" data-remove-machine="'+m.type+'" aria-label="Remove '+def.name+'">'+trash+'</button></div>'+(m.type==='bike'?'<div class="bike-field"><label for="bikeMinutes">Warm-up time (min)</label><input id="bikeMinutes" type="number" inputmode="decimal" min="0" max="1440" step="0.1" value="'+m.minutes+'" data-minutes></div>':'<div class="set-head" aria-hidden="true"><span>Set</span><span>Reps</span><span>Weight · kg</span><span></span></div>'+m.sets.map((s,i)=>'<div class="set-row"><span class="set-number">'+(i+1)+'</span><input type="number" inputmode="numeric" min="1" max="999" step="1" value="'+s.reps+'" data-reps="'+i+'" aria-label="'+def.name+' set '+(i+1)+' reps"><select data-weight="'+i+'" aria-label="'+def.name+' set '+(i+1)+' weight in kilograms">'+weightOptions(s.weight)+'</select><button class="remove" data-remove-set="'+i+'" aria-label="Remove '+def.name+' set '+(i+1)+'">×</button></div>').join('')+'<button class="add-set" data-add-set>+ Add set</button>')+'</section>';}).join('')||'<div class="empty"><span class="machine-icon">'+icon+'</span><h3>A fresh start</h3><p>Add your first machine to start<br>logging this day’s workout.</p></div>';
- $('addMachine').disabled=logs===null;renderSummary();if(typeof updateSyncButtons==='function'&&typeof syncBusy!=='undefined')updateSyncButtons();
+ $('addMachine').disabled=logs===null;renderSummary();renderCopyWorkout();if(typeof updateSyncButtons==='function'&&typeof syncBusy!=='undefined')updateSyncButtons();
 }
 function mutate(fn){if(logs===null)return;if(!logs[selected])logs[selected]=[];fn();if(!logs[selected].length)delete logs[selected];persist();render();}
+$('copyWorkout').addEventListener('click',copyLastWorkout);
 $('days').addEventListener('click',e=>{const b=e.target.closest('[data-day]');if(b){selected=b.dataset.day;render();}});
 for(const [id,offset] of [['previous',-7],['next',7]])$(id).addEventListener('click',()=>{week=shift(week,offset);selected=shift(selected,offset);render();});
 $('addMachine').addEventListener('click',()=>{$('choices').innerHTML=MACHINES.map(m=>{const exists=day().some(x=>x.type===m.id);return '<button class="choice" data-add-machine="'+m.id+'"'+(exists?' disabled':'')+'><span class="machine-icon">'+exerciseIcon(m.id)+'</span><span><b>'+m.name+'</b><small>'+(exists?'Already added':m.detail)+'</small></span></button>';}).join('');$('picker').showModal();});
@@ -116,17 +131,25 @@ $('machines').addEventListener('input',e=>{if(e.target.matches('input'))e.target
 $('confirmRemove').addEventListener('click',()=>{if(pendingRemove&&pendingRemove.date===selected)mutate(()=>logs[selected]=day().filter(m=>m.type!==pendingRemove.type));pendingRemove=null;$('confirm').close();});
 $('help').addEventListener('click',()=>$('about').showModal());
 document.querySelectorAll('[data-close]').forEach(b=>b.addEventListener('click',()=>$(b.dataset.close).close()));
-// Append-only Drive sync protected by the user’s Google Drive permissions. Each revision is a separate immutable file.
-// Concurrent edits to one day remain available until the user chooses a version.
-const GOOGLE_CLIENT_ID = '129980170490-qkd2idjrog1i72nicnapommnte6c5t9t.apps.googleusercontent.com'; // Public OAuth app ID; not a secret.
-const SYNC_STORE = 'weights_sync_v2';
-const CLIENT_STORE = 'weights_google_client_id';
-const DRIVE_SCOPE = 'https://www.googleapis.com/auth/drive.appdata';
-const FILE_PREFIX = 'weights-revision-v3-';
+// Firebase owns the persistent Google session; workouts use immutable per-user revisions.
+// Public Firebase web configuration; Authentication and Firestore only.
+const FIREBASE_CONFIG = {
+ apiKey: "AIzaSyAaJn_ulGzJDQTqGOyyOhyvahh5cwBeQ54",
+ authDomain: "weights-41721.firebaseapp.com",
+ projectId: "weights-41721",
+ storageBucket: "weights-41721.firebasestorage.app",
+ messagingSenderId: "1009375055983",
+ appId: "1:1009375055983:web:4d948a241aac746d2c7d9a"
+};
+const FB_SDK_VERSION = '13.2.0';
+const CONFIG_STORE = 'weights_firebase_config_v1';
+const GUEST_STORE = 'weights_firebase_guest_v1';
+const LEGACY_STORE = 'weights_sync_v2';
+const LEGACY_IMPORTED = 'weights_legacy_imported_v1';
 let syncState = {version:2,account:null,records:[]};
-let syncReady = false, syncBusy = false, syncTimer, autoSyncPending = false, token = '', tokenUntil = 0;
-let activeAccount = '', generation = 0, oauthLoading;
-let remoteIds = new Set();
+let syncReady=false, syncBusy=false, syncTimer, autoSyncPending=false, generation=0;
+let auth=null, db=null, currentUser=null, activeStore=GUEST_STORE, sdkLoading, firebaseStarting=false, authPending=false;
+let configuredProject='', offlineMode=false, config=null;
 function copy(value){return JSON.parse(JSON.stringify(value));}
 function heads(records,date){
  const revisions=records.filter(r=>r.date===date), superseded=new Set(revisions.flatMap(r=>r.parents));
@@ -139,12 +162,17 @@ function validRecord(r){return r&&/^[a-f0-9-]{36}$/.test(r.id)&&Number.isSafeInt
 function validateRecords(records){
  if(!Array.isArray(records)||records.length>20000||!records.every(validRecord))throw Error('Invalid sync data. No cloud changes were applied.');
  const byId=new Map(records.map(r=>[r.id,r]));if(byId.size!==records.length)throw Error('Duplicate sync revisions.');
- const done=new Set(), visiting=new Set();
+ const done=new Set(),visiting=new Set();
  function visit(r){if(visiting.has(r.id))throw Error('Invalid sync history.');if(done.has(r.id))return;visiting.add(r.id);for(const id of r.parents){const p=byId.get(id);if(!p||p.date!==r.date)throw Error('Incomplete sync history. Try syncing again.');visit(p);}visiting.delete(r.id);done.add(r.id);}
  records.forEach(visit);return records;
 }
 function newRevision(date,machines,parents){return {id:crypto.randomUUID(),date,machines:copy(machines),parents:parents.map(p=>p.id),time:Date.now()};}
-function writeState(state){localStorage.setItem(SYNC_STORE,JSON.stringify(state));}
+function accountStore(uid){return 'weights_firebase_user_v1:'+configuredProject+':'+uid;}
+function writeState(state){localStorage.setItem(activeStore,JSON.stringify(state));}
+function loadState(key,account){
+ const raw=localStorage.getItem(key);if(!raw)return {version:2,account,records:[]};
+ const state=JSON.parse(raw);if(state.version!==2||state.account!==account)throw Error('Invalid local account data. Saved data has been preserved.');validateRecords(state.records);return state;
+}
 function syncStatus(text){$('syncStatus').textContent=text;$('syncMessage').textContent=text;}
 function refreshConflicts(){
  const count=[...new Set(syncState.records.map(r=>r.date))].filter(date=>heads(syncState.records,date).length>1).length;
@@ -152,131 +180,164 @@ function refreshConflicts(){
 }
 function recordLocalChange(){
  if(!syncReady)return;
- const current=logs[selected]||[], tips=heads(syncState.records,selected), previous=tips.at(-1)?.machines||[];
- // A normal edit never silently resolves competing versions.
- if(JSON.stringify(current)!==JSON.stringify(previous)){
-  const state={...syncState,records:[...syncState.records,newRevision(selected,current,tips.length?[tips.at(-1)]:[])]};
-  writeState(state);syncState=state;
- }else return;
- refreshConflicts();scheduleSync();
+ const current=logs[selected]||[],tips=heads(syncState.records,selected),previous=tips.at(-1)?.machines||[];
+ if(JSON.stringify(current)===JSON.stringify(previous))return;
+ const state={...syncState,records:[...syncState.records,newRevision(selected,current,tips.length?[tips.at(-1)]:[])]};
+ writeState(state);syncState=state;refreshConflicts();scheduleSync();
 }
-function scheduleSync(){autoSyncPending=true;clearTimeout(syncTimer);if(token){syncStatus('Changes pending sync');syncTimer=setTimeout(()=>syncNow(),1800);}}
+function scheduleSync(){autoSyncPending=true;clearTimeout(syncTimer);if(currentUser){syncStatus('Changes pending sync');syncTimer=setTimeout(()=>syncNow(),1800);}}
+function validConfig(value){return value&&typeof value==='object'&&['apiKey','authDomain','projectId','appId'].every(k=>typeof value[k]==='string'&&value[k].trim());}
 function initializeSync(){
  try{
-  const stored=localStorage.getItem(SYNC_STORE);
-  if(stored){const state=JSON.parse(stored);if(state.version!==2||(state.account!==null&&typeof state.account!=='string'))throw Error('Invalid local sync data');validateRecords(state.records);syncState=state;logs=projected(state.records);}
-  else if(logs!==null){syncState.records=Object.entries(logs).map(([date,machines])=>newRevision(date,machines,[]));writeState(syncState);}
-  syncReady=logs!==null;
- }catch(error){logs=null;message('Local sync data could not be loaded. Saved data has been preserved.');}
- try{$('clientId').value=GOOGLE_CLIENT_ID||localStorage.getItem(CLIENT_STORE)||'';}catch{}
- $('developerSetup').open=!$('clientId').value;
- $('developerSetup').classList.toggle('hidden',!!GOOGLE_CLIENT_ID);
- render();refreshConflicts();
-}
-function readRevision(payload,id){
- if(payload?.version!==3||!validRecord(payload.record)||payload.record.id!==id)throw Error('Invalid workout revision. No cloud changes were applied.');
- return payload.record;
-}
-async function driveRequest(path,options={}){
- if(!token||Date.now()>=tokenUntil)throw Error('Google session expired. Connect Google Drive again.');
- const response=await fetch('https://www.googleapis.com/'+path,{...options,headers:{...options.headers,Authorization:'Bearer '+token},cache:'no-store'});
- if(response.status===401){token='';throw Error('Google session expired. Connect Google Drive again.');}
- if(!response.ok)throw Error(response.status===403?'Drive permission denied. Check Drive API setup and reconnect.':'Drive request failed ('+response.status+'). Your local data is safe; try again.');
- return response.json();
-}
-async function listRemote(){
- const files=[];let pageToken;
- do{const query=new URLSearchParams({spaces:'appDataFolder',q:"trashed = false and name contains 'weights-revision-'",fields:'nextPageToken,files(id,name)',pageSize:'1000'});if(pageToken)query.set('pageToken',pageToken);
- const page=await driveRequest('drive/v3/files?'+query);files.push(...(page.files||[]));pageToken=page.nextPageToken;if(files.length>20000)throw Error('Sync history is too large.');}while(pageToken);
- return files;
-}
-async function uploadRevision(record){
- const payload={version:3,record}, boundary='weights_'+crypto.randomUUID();
- const metadata={name:FILE_PREFIX+record.id+'.json',parents:['appDataFolder'],mimeType:'application/json'};
- const body='--'+boundary+'\r\nContent-Type: application/json; charset=UTF-8\r\n\r\n'+JSON.stringify(metadata)+'\r\n--'+boundary+'\r\nContent-Type: application/json\r\n\r\n'+JSON.stringify(payload)+'\r\n--'+boundary+'--';
- await driveRequest('upload/drive/v3/files?uploadType=multipart&fields=id',{method:'POST',headers:{'Content-Type':'multipart/related; boundary='+boundary},body});
-}
-async function syncNow(){
- if(syncBusy||!token||!syncReady)return;
- if($('machines').contains(document.activeElement))return;
- autoSyncPending=false;clearTimeout(syncTimer);
- syncBusy=true;const attempt=generation;updateSyncButtons();syncStatus('Syncing workouts…');
- try{
-  const files=await listRemote(), additions=[], discovered=new Set();
-  for(const file of files){
-   const match=new RegExp('^'+FILE_PREFIX+'([a-f0-9-]{36})\\.json$').exec(file.name);if(!match)continue;
-   const id=match[1];if(discovered.has(id))continue;if(remoteIds.has(id)){discovered.add(id);continue;}
-   const envelope=await driveRequest('drive/v3/files/'+encodeURIComponent(file.id)+'?alt=media');
-   const record=readRevision(envelope,id);additions.push(record);discovered.add(id);
+  if(!localStorage.getItem(GUEST_STORE)){
+   let records=[];
+   if(!localStorage.getItem(LEGACY_IMPORTED)){
+    const legacy=localStorage.getItem(LEGACY_STORE);
+    if(legacy){const state=JSON.parse(legacy);if(state.version!==2)throw Error('Invalid legacy diary');records=validateRecords(state.records);}
+    else if(logs!==null)records=Object.entries(logs).map(([date,machines])=>newRevision(date,machines,[]));
+    else throw Error('Invalid diary');
+   }
+   localStorage.setItem(GUEST_STORE,JSON.stringify({version:2,account:null,records}));
   }
-  if(attempt!==generation)return;
-  const merged=new Map(syncState.records.map(r=>[r.id,r]));
-  for(const r of additions){if(merged.has(r.id)&&JSON.stringify(merged.get(r.id))!==JSON.stringify(r))throw Error('Conflicting revision identifiers.');merged.set(r.id,r);}
-  // Old encrypted files are never overwritten or silently ignored. A device
-  // holding their original local revisions can republish them without a password.
-  for(const file of files){const legacy=/^weights-revision-v2-([a-f0-9-]{36})\.json$/.exec(file.name);if(legacy&&!merged.has(legacy[1]))throw Error('Older encrypted workouts need migration. Connect from the original device with its saved workouts first. See the setup guide.');}
-  const records=validateRecords([...merged.values()]);
-  const state={version:2,account:activeAccount,records};writeState(state);syncState=state;logs=projected(records);remoteIds=discovered;
-  // Do not replace a focused number input while someone is typing.
-  if(!$('machines').contains(document.activeElement))render();else renderSummary();refreshConflicts();
-  for(const record of records){if(attempt!==generation)return;if(remoteIds.has(record.id))continue;await uploadRevision(record);remoteIds.add(record.id);}
-  if(attempt!==generation)return;
-  syncStatus('Synced · '+new Date().toLocaleTimeString('en-GB',{hour:'2-digit',minute:'2-digit'}));
- }catch(error){if(attempt===generation)syncStatus(error.message||'Sync failed. Your local workouts are safe.');}
- finally{syncBusy=false;updateSyncButtons();if(autoSyncPending)scheduleSync();}
+  syncState=loadState(GUEST_STORE,null);logs=projected(syncState.records);syncReady=true;
+ }catch(error){logs=null;message('Local diary could not be loaded. Saved data has been preserved.');}
+ try{config=FIREBASE_CONFIG||JSON.parse(localStorage.getItem(CONFIG_STORE)||'null');}catch{config=null;}
+ $('firebaseConfig').value=config?JSON.stringify(config,null,2):'';
+ $('developerSetup').classList.toggle('hidden',!!FIREBASE_CONFIG);$('developerSetup').open=!validConfig(config);
+ render();refreshConflicts();
+ if(validConfig(config))startFirebase();
 }
+function cloudError(error){
+ const code=error?.code||'';
+ if(code==='auth/unauthorized-domain')return 'This domain is not authorized. Add it in Firebase Authentication settings.';
+ if(code==='permission-denied'||code==='firestore/permission-denied')return 'Firestore access denied. The app owner must publish the per-user security rules.';
+ if(code==='auth/popup-closed-by-user')return 'Sign-in was cancelled. Your workouts remain saved locally.';
+ if(code==='auth/popup-blocked')return 'Allow pop-ups for this site, then try signing in again.';
+ return error?.message||'Connection failed. Your local workouts are safe.';
+}
+function loadFirebaseSdk(){
+ if(window.firebase?.auth&&window.firebase?.firestore)return Promise.resolve();
+ return sdkLoading ||= (async()=>{
+  for(const name of ['app','auth','firestore'])await new Promise((resolve,reject)=>{
+   const script=document.createElement('script');script.src='https://www.gstatic.com/firebasejs/'+FB_SDK_VERSION+'/firebase-'+name+'-compat.js';script.onload=resolve;script.onerror=()=>reject(Error('Firebase could not load. Check your connection and retry.'));document.head.appendChild(script);
+  });
+ })().catch(error=>{sdkLoading=null;throw error;});
+}
+function showAuthGate(text='Sign in with Google. Your session stays active until you log out.'){
+ $('authGateMessage').textContent=text;if(!$('authGate').open&&!$('syncDialog').open)$('authGate').showModal();updateSyncButtons();
+}
+async function startFirebase(){
+ if(firebaseStarting||auth)return;
+ if(!validConfig(config)){syncStatus('The app owner needs to configure Firebase.');return;}
+ if(location.protocol==='file:'||!window.isSecureContext){syncStatus('Firebase sign-in requires HTTPS or localhost.');return;}
+ firebaseStarting=true;authPending=true;showAuthGate('Restoring your session…');
+ try{
+  await loadFirebaseSdk();
+  const app=window.firebase.apps.find(app=>app.name==='weights')||window.firebase.initializeApp(config,'weights');
+  if(app.options.projectId!==config.projectId)throw Error('Firebase project changed. Reload the page before continuing.');
+  configuredProject=config.projectId;auth=app.auth();db=app.firestore();
+  await auth.setPersistence(window.firebase.auth.Auth.Persistence.LOCAL);
+  auth.onAuthStateChanged(user=>onAuthChanged(user),error=>{authPending=false;showAuthGate(cloudError(error));});
+ }catch(error){auth=null;db=null;authPending=false;syncStatus(cloudError(error));showAuthGate(cloudError(error));}
+ finally{firebaseStarting=false;updateSyncButtons();}
+}
+async function onAuthChanged(user){
+ generation++;clearTimeout(syncTimer);syncBusy=false;autoSyncPending=false;authPending=false;currentUser=user;syncReady=false;
+ $('conflictDialog').close();$('importDialog').close();$('about').close();$('conflictList').replaceChildren();
+ activeStore=user?accountStore(user.uid):GUEST_STORE;
+ try{syncState=loadState(activeStore,user?.uid||null);logs=projected(syncState.records);syncReady=true;}
+ catch(error){logs=null;syncState={version:2,account:user?.uid||null,records:[]};message(cloudError(error));}
+ $('connectedAccount').textContent=user?(user.displayName||user.email||'Signed in')+(user.email&&user.displayName?' · '+user.email:''):'';
+ render();refreshConflicts();
+ if(user){offlineMode=false;$('authGate').close();$('syncDialog').close();syncStatus('Signed in');if(syncReady)await syncNow();}
+ else{syncStatus('Signed out · saved locally');if(!offlineMode){$('syncDialog').close();showAuthGate();}}
+ updateSyncButtons();
+}
+function timed(operation){
+ let timer;return Promise.race([operation,new Promise((_,reject)=>{timer=setTimeout(()=>reject(Error('Connection timed out. Your local workouts are safe; try Sync again.')),15000);})]).finally(()=>clearTimeout(timer));
+}
+function revisionCollection(uid){return db.collection('users').doc(uid).collection('weightsRevisions');}
+async function syncNow(){
+ if(syncBusy||!currentUser||!syncReady||!db)return false;
+ if($('machines').contains(document.activeElement))return false;
+ autoSyncPending=false;clearTimeout(syncTimer);syncBusy=true;
+ const attempt=generation,uid=currentUser.uid,collection=revisionCollection(uid);
+ updateSyncButtons();syncStatus('Syncing workouts…');
+ try{
+  if(window.navigator?.onLine===false)throw Error('Offline · changes are saved on this device.');
+  const snapshot=await timed(collection.limit(20001).get({source:'server'}));if(snapshot.size>20000)throw Error('Sync history is too large.');
+  if(attempt!==generation)return false;
+  const merged=new Map(syncState.records.map(r=>[r.id,r])),remoteIds=new Set();
+  snapshot.forEach(doc=>{
+   const payload=doc.data();if(payload.version!==1||typeof payload.p!=='string')throw Error('Invalid cloud workout. No changes were uploaded.');
+   const record=JSON.parse(payload.p);if(!validRecord(record)||record.id!==doc.id)throw Error('Invalid cloud revision.');
+   if(merged.has(record.id)&&JSON.stringify(merged.get(record.id))!==JSON.stringify(record))throw Error('Conflicting revision identifiers.');
+   merged.set(record.id,record);remoteIds.add(record.id);
+  });
+  const records=validateRecords([...merged.values()]);
+  const state={version:2,account:uid,records};writeState(state);syncState=state;logs=projected(records);render();refreshConflicts();
+  for(const record of records){
+   if(attempt!==generation)return false;if(remoteIds.has(record.id))continue;
+   const p=JSON.stringify(record);if(p.length>200000)throw Error('Workout revision is too large to sync.');
+   await timed(collection.doc(record.id).set({version:1,p}));
+  }
+  if(attempt!==generation)return false;
+  syncStatus('Synced · '+new Date().toLocaleTimeString('en-GB',{hour:'2-digit',minute:'2-digit'}));return true;
+ }catch(error){if(attempt===generation)syncStatus(cloudError(error));return false;}
+ finally{if(attempt===generation){syncBusy=false;updateSyncButtons();if(autoSyncPending)scheduleSync();}}
+}
+function offlineRecords(){return loadState(GUEST_STORE,null).records;}
 function updateSyncButtons(){
- $('openSync').disabled=syncBusy;
- $('openSync').textContent=token&&Date.now()<tokenUntil?'☁ Sync now':'☁ Connect Google Drive';
- $('connectDrive').disabled=syncBusy;$('syncNow').disabled=syncBusy||!token;$('lockSync').disabled=syncBusy||!token;
- $('clientId').disabled=!!token||syncBusy;
+ renderCopyWorkout();
+ $('openSync').disabled=syncBusy||authPending;$('openSync').textContent=currentUser?'☁ Sync now':'Sign in with Google';
+ $('connectGoogle').disabled=!!currentUser||!auth||authPending;
+ $('gateGoogle').disabled=!auth||authPending;
+ $('syncNow').disabled=syncBusy||!currentUser;$('signOut').disabled=syncBusy||!currentUser;
+ $('saveFirebaseConfig').disabled=!!currentUser||firebaseStarting;
  $('addMachine').disabled=syncBusy||logs===null||!syncReady;
  $('machines').querySelectorAll('button,input,select').forEach(el=>el.disabled=syncBusy||!syncReady);
-}
-function lockSync(){
- generation++;$('connectedAccount').textContent='';clearTimeout(syncTimer);token='';tokenUntil=0;activeAccount='';remoteIds.clear();syncStatus('Disconnected · saved workouts remain on this device');updateSyncButtons();
-}
-function loadGoogle(){
- if(window.google?.accounts?.oauth2)return Promise.resolve();
- return oauthLoading ||= new Promise((resolve,reject)=>{
-  const script=document.createElement('script');script.src='https://accounts.google.com/gsi/client';script.async=true;script.onload=resolve;script.onerror=()=>{oauthLoading=null;reject(Error('Google sign-in could not load. Check your connection and try again.'));};document.head.appendChild(script);
- });
+ let available=false;try{available=!!currentUser&&offlineRecords().length>0;}catch{}
+ $('importOffline').classList.toggle('hidden',!available);$('importOffline').disabled=syncBusy;
 }
 function openSync(){
- $('syncDialog').showModal();updateSyncButtons();
- if(location.protocol==='file:')syncStatus('Open Weights over HTTPS or localhost to connect Google Drive.');
- else loadGoogle().then(()=>{$('connectDrive').textContent='Connect Google Drive';}).catch(error=>syncStatus(error.message));
+ $('authGate').close();if(!$('syncDialog').open)$('syncDialog').showModal();updateSyncButtons();
+ if(!auth&&validConfig(config))startFirebase();
 }
-function connectDrive(){
- if(!syncReady){syncStatus('Fix local diary storage before connecting.');return;}
- if(location.protocol==='file:'||!window.isSecureContext){syncStatus('Google Drive sync requires HTTPS or localhost.');return;}
- const clientId=GOOGLE_CLIENT_ID||$('clientId').value.trim();
- if(!/^[a-zA-Z0-9_-]+\.apps\.googleusercontent\.com$/.test(clientId)){syncStatus('Enter the Google OAuth web client ID. See the setup guide.');return;}
- if(!$('uploadConsent').checked){syncStatus('Confirm that this browser’s workouts belong to the Google account you will connect.');return;}
- if(!window.google?.accounts?.oauth2){syncStatus('Google sign-in is loading. Try Connect again in a moment.');loadGoogle().catch(error=>syncStatus(error.message));return;}
- try{localStorage.setItem(CLIENT_STORE,clientId);}catch{syncStatus('Browser storage is unavailable.');return;}
- const attempt=++generation;syncBusy=true;updateSyncButtons();syncStatus('Choose your Google account…');
- const client=google.accounts.oauth2.initTokenClient({client_id:clientId,scope:DRIVE_SCOPE,include_granted_scopes:false,
-  error_callback:()=>{syncBusy=false;syncStatus('Google sign-in was closed or blocked. Try again.');updateSyncButtons();},
-  callback:async response=>{
-   if(attempt!==generation)return;
-   try{
-    if(response.error||!response.access_token)throw Error('Google connection was not authorized.');
-    if(!google.accounts.oauth2.hasGrantedAllScopes(response,DRIVE_SCOPE))throw Error('Allow access to the app’s Drive data to sync.');
-    token=response.access_token;tokenUntil=Date.now()+Number(response.expires_in)*1000-30000;
-    const about=await driveRequest('drive/v3/about?fields=user(permissionId,emailAddress)');activeAccount=about.user?.permissionId;
-    if(!activeAccount)throw Error('Could not identify this Drive account.');
-    if(syncState.account&&syncState.account!==activeAccount)throw Error('This browser’s diary belongs to another Google account. Use a separate browser profile for a different account.');
-    // Check existing revisions before allowing uploads or binding this device.
-    remoteIds.clear();
-    $('connectedAccount').textContent='Google Drive: '+(about.user.emailAddress||'connected');
-
-    syncBusy=false;await syncNow();
-   }catch(error){lockSync();syncStatus(error.message||'Connection failed.');}
-   finally{syncBusy=false;updateSyncButtons();}
-  }
- });
- try{client.requestAccessToken({prompt:'select_account'});}catch(error){syncBusy=false;syncStatus('Google sign-in could not open. Allow pop-ups and try again.');updateSyncButtons();}
+async function signIn(){
+ if(authPending||currentUser)return;
+ if(!auth){openSync();if(validConfig(config))await startFirebase();return;}
+ authPending=true;updateSyncButtons();
+ try{await auth.signInWithPopup(new window.firebase.auth.GoogleAuthProvider());}
+ catch(error){syncStatus(cloudError(error));$('authGateMessage').textContent=cloudError(error);}
+ finally{authPending=false;updateSyncButtons();}
+}
+async function signOut(){
+ if(!auth||syncBusy)return;
+ try{offlineMode=false;await auth.signOut();}
+ catch(error){syncStatus(cloudError(error));}
+}
+async function saveFirebaseConfig(){
+ try{
+  const text=$('firebaseConfig').value,match=text.match(/\{[\s\S]*\}/);if(!match)throw Error('Paste the firebaseConfig object from Firebase project settings.');
+  // Accept the JavaScript object Google displays without evaluating pasted code.
+  const normalized=match[0].replace(/([{,]\s*)([A-Za-z_$][\w$]*)\s*:/g,'$1"$2":').replace(/,\s*}/g,'}');
+  const value=JSON.parse(normalized);if(!validConfig(value))throw Error('Include apiKey, authDomain, projectId and appId.');
+  if(auth)throw Error('Reload before changing the Firebase project.');
+  localStorage.setItem(CONFIG_STORE,JSON.stringify(value));config=value;$('developerSetup').open=false;await startFirebase();
+ }catch(error){syncStatus(cloudError(error));}
+}
+function importOfflineWorkouts(){
+ if(!currentUser||syncBusy||!syncReady)return;
+ try{
+  const guest=offlineRecords(),merged=new Map(syncState.records.map(r=>[r.id,r]));
+  for(const r of guest){if(merged.has(r.id)&&JSON.stringify(merged.get(r.id))!==JSON.stringify(r))throw Error('Conflicting offline revision IDs.');merged.set(r.id,r);}
+  const records=validateRecords([...merged.values()]);
+  const state={version:2,account:currentUser.uid,records};writeState(state);syncState=state;logs=projected(records);
+  // Write the account copy first. A failure never deletes the source diary.
+  localStorage.setItem(LEGACY_IMPORTED,configuredProject+':'+currentUser.uid);
+  localStorage.setItem(GUEST_STORE,JSON.stringify({version:2,account:null,records:[]}));
+  $('importDialog').close();render();refreshConflicts();scheduleSync();
+ }catch(error){syncStatus(cloudError(error));}
 }
 function openConflicts(){
  const dates=[...new Set(syncState.records.map(r=>r.date))].filter(date=>heads(syncState.records,date).length>1);
@@ -287,6 +348,7 @@ function openConflicts(){
   button.textContent=revision.machines.length?revision.machines.map(m=>MACHINES.find(t=>t.id===m.type).name+': '+(m.type==='bike'?m.minutes+' min':m.sets.map(s=>s.reps+' × '+s.weight+' kg').join(', ')||'no sets')).join(' · '):'Empty workout (deleted)';
   button.title='Keep this version, edited '+new Date(revision.time).toLocaleString('en-GB');
   button.addEventListener('click',()=>{
+   if(syncBusy||!syncReady)return;
    const state={...syncState,records:[...syncState.records,newRevision(date,revision.machines,heads(syncState.records,date))]};
    try{writeState(state);syncState=state;logs=projected(state.records);render();refreshConflicts();scheduleSync();openConflicts();}catch{syncStatus('Not enough browser storage to save your choice.');}
   });section.appendChild(button);
@@ -294,24 +356,22 @@ function openConflicts(){
  if(!dates.length)$('conflictList').textContent='All conflicts resolved.';
  if(!$('conflictDialog').open)$('conflictDialog').showModal();
 }
-// Resume a pending edit after leaving a field; focusing alone never triggers sync.
-$('machines').addEventListener('focusout',()=>{if(autoSyncPending&&token)scheduleSync();});
-function handleSyncClick(){
- if(syncBusy)return;
- if(token&&Date.now()<tokenUntil)return syncNow();
- if(token){lockSync();syncStatus('Google session expired. Connect Google Drive again.');}
- openSync();
-}
+$('machines').addEventListener('focusout',()=>{if(autoSyncPending&&currentUser)scheduleSync();});
+function handleSyncClick(){if(syncBusy)return;if(currentUser)return syncNow();openSync();}
 $('openSync').addEventListener('click',handleSyncClick);
 $('manageSync').addEventListener('click',()=>{$('about').close();openSync();});
-$('connectDrive').addEventListener('click',connectDrive);
-$('syncNow').addEventListener('click',()=>syncNow());
-$('lockSync').addEventListener('click',lockSync);
+$('connectGoogle').addEventListener('click',signIn);$('gateGoogle').addEventListener('click',signIn);
+$('authSetup').addEventListener('click',openSync);
+$('continueOffline').addEventListener('click',()=>{offlineMode=true;$('authGate').close();});
+$('authGate').addEventListener('cancel',event=>{event.preventDefault();});
+$('saveFirebaseConfig').addEventListener('click',saveFirebaseConfig);
+$('syncNow').addEventListener('click',()=>syncNow());$('signOut').addEventListener('click',signOut);
+$('importOffline').addEventListener('click',()=>{$('syncDialog').close();$('importDialog').showModal();});
+$('confirmImport').addEventListener('click',importOfflineWorkouts);
 $('conflicts').addEventListener('click',openConflicts);
 window.addEventListener('storage',event=>{
- if(event.key!==SYNC_STORE)return;
- // Another tab may own a different account or have pending edits. Reload explicitly.
- lockSync();syncReady=false;logs=null;render();message('This diary changed in another tab. Reload this page before editing or syncing.');
+ if(event.key!==activeStore&&event.key!==CONFIG_STORE)return;
+ generation++;clearTimeout(syncTimer);syncReady=false;syncBusy=false;logs=null;render();message('This diary or account changed in another tab. Reload before editing or syncing.');
 });
 initializeSync();
 

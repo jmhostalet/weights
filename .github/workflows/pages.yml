@@ -30,7 +30,7 @@ jobs:
       - name: Prepare versioned static files
         run: |
           python3 scripts/stamp-version.py --output _site/weights.html
-          cp GOOGLE_DRIVE_SETUP.md _site/
+          cp FIREBASE_SETUP.md GOOGLE_DRIVE_SETUP.md _site/
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v4
         with:

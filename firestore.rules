@@ -1,0 +1,25 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function ownsDiary(uid) {
+      return request.auth != null && request.auth.uid == uid;
+    }
+    match /users/{uid}/weightsRevisions/{revisionId} {
+      allow read: if ownsDiary(uid);
+      allow create: if ownsDiary(uid)
+        && revisionId.matches('^[a-f0-9-]{36}$')
+        && request.resource.data.keys().hasOnly(['version', 'p'])
+        && request.resource.data.keys().hasAll(['version', 'p'])
+        && request.resource.data.version == 1
+        && request.resource.data.p is string
+        && request.resource.data.p.size() <= 200000;
+      // A retry may write identical contents, but history is immutable.
+      allow update: if ownsDiary(uid) && request.resource.data == resource.data;
+      allow delete: if false;
+    }
+    // Everything outside the narrowly scoped diary collection is denied.
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}
