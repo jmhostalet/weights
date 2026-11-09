@@ -1,0 +1,13 @@
+- toda la aplicación estará en inglés
+- habrá un boton para añadir maquina, se podrá elegir entre las siguientes opciones:
+ - warm-up bike: tiempo en minutos
+ - abdominales
+ - jalon 
+ - cuadripces
+ - gemelos
+ - biceps
+- cada maquina tendrá la opción de añadir repeticion, en cada repetición podré indicar, las repeticiones que he hecho y el peso a levantar
+- el peso a levantar en kilos se seleccionará entre 20 y 70 kilos, con incremento de un kilo
+- habrá un indicador final que será la suma de todo el peso total levantado ese día
+- cuando se añada una maquina, ofrecerá por defecto 12 repeticiones y el mismo peso que la vez anterior si existe
+
