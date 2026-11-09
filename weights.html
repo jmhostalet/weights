@@ -9,7 +9,9 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{--bg:#F4F5FA;--card:#fff;--ink:#20232E;--ink-soft:#73798D;--border-soft:#ECEDF4;--primary:#0FBF8F;--primary-dark:#087D5E;--primary-soft:#E3F8F1;--purple:#8B5CF6;--danger:#D72D55;--radius-lg:22px;--radius-md:14px;--shadow-card:0 2px 10px #20232e0d,0 10px 24px -12px #20232e1a}
-*{box-sizing:border-box}html,body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,sans-serif;-webkit-font-smoothing:antialiased}button,input,select{font:inherit}button{cursor:pointer}button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid var(--primary);outline-offset:3px}h1,h2,h3,.num{font-family:Poppins,sans-serif}button{touch-action:manipulation}input,select{font-size:16px}.app{max-width:640px;margin:auto;min-height:100dvh}header{padding:20px 20px 0}.brand{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px}.brand-id{display:flex;align-items:center;gap:10px}h1{font-size:21px;letter-spacing:-.01em;margin:0;font-weight:800}.logo{display:grid;place-items:center;background:var(--primary);color:white;border-radius:9px;width:32px;height:32px}.icon-button{display:grid;place-items:center;background:white;border:0;border-radius:50%;width:38px;height:38px;color:var(--ink-soft);box-shadow:var(--shadow-card)}svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}.day-strip-wrap{display:flex;align-items:center;gap:3px;margin-bottom:18px}.day-strip{display:flex;overflow:auto;gap:8px;flex:1;padding:3px 6px;scrollbar-width:none}.day-strip::-webkit-scrollbar{display:none}.day-chip{flex:none;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;width:42px;height:58px;border:0;border-radius:999px;background:white;color:var(--ink-soft);box-shadow:var(--shadow-card);position:relative}.dc-dow{font-size:9px;text-transform:uppercase;font-weight:600}.dc-num{font-size:15px;font-weight:700}.day-chip.is-today{box-shadow:inset 0 0 0 2px var(--primary)}.day-chip.is-selected{background:var(--ink);color:white;box-shadow:none}.day-chip.has-data:after{content:'';width:4px;height:4px;border-radius:50%;background:var(--primary);position:absolute;bottom:6px}.nav-arrow{border:0;background:none;color:var(--ink-soft);padding:7px;font-size:22px}main{padding:0 20px 30px}.day-date{font-size:14px;color:var(--ink-soft);margin:0 0 16px}.facts{background:white;border-radius:var(--radius-lg);padding:22px 18px;box-shadow:var(--shadow-card);position:sticky;top:8px;z-index:2}.eyebrow{font-size:11px;text-transform:uppercase;letter-spacing:.06em;font-weight:700;color:var(--ink-soft)}.week-row{display:flex;justify-content:space-between;align-items:center;gap:10px}.week-row strong{font-size:13px;color:var(--primary-dark)}.volume{text-align:center;padding:20px 0}.volume .num{font-size:36px;font-weight:800;line-height:1.2;letter-spacing:-1px}.volume .unit{font-size:15px;color:var(--ink-soft)}.volume p{font-size:12px;color:var(--ink-soft);margin:5px 0 0}.stats{display:flex;border-top:1px solid var(--border-soft);padding-top:16px}.stat{flex:1;text-align:center}.stat+.stat{border-left:1px solid var(--border-soft)}.stat span{display:block;font-size:12px;color:var(--ink-soft);margin-bottom:5px}.stat strong{font:600 17px Poppins,sans-serif}.section-heading{display:flex;justify-content:space-between;align-items:center;margin:25px 0 14px}h2{font-size:17px;margin:0}.subtle{font-size:12px;color:var(--ink-soft)}.machine{background:white;border-radius:var(--radius-lg);box-shadow:var(--shadow-card);padding:18px;margin-bottom:14px}.machine-head{display:flex;align-items:center;gap:11px;margin-bottom:16px}.machine-icon{width:38px;height:38px;background:var(--primary-soft);color:var(--primary-dark);border-radius:12px;display:grid;place-items:center}.machine-title{flex:1}.machine h3{font-size:14px;margin:0 0 3px}.machine-total{font-size:11px;color:var(--ink-soft)}.remove{border:0;background:none;color:var(--ink-soft);padding:8px;display:grid;place-items:center}.remove:hover{color:var(--danger)}.set-head,.set-row{display:grid;grid-template-columns:32px 1fr 1fr 32px;gap:10px;align-items:center}.set-head{font-size:10px;text-transform:uppercase;font-weight:600;letter-spacing:.04em;color:var(--ink-soft);margin-bottom:8px}.set-row{margin-bottom:9px}.set-number{width:27px;height:27px;border-radius:8px;background:var(--bg);display:grid;place-items:center;font-size:12px;font-weight:600;color:var(--ink-soft)}input,select{width:100%;min-width:0;border:1px solid var(--border-soft);border-radius:10px;background:var(--bg);color:var(--ink);padding:10px 11px;min-height:42px}input:invalid{border-color:var(--danger)}.add-set{border:0;background:var(--primary-soft);color:var(--primary-dark);border-radius:10px;width:100%;padding:11px;font-size:12px;font-weight:700;margin-top:5px}.primary{border:0;background:var(--primary);color:#073D2E;border-radius:14px;padding:15px;font-weight:700;width:100%;box-shadow:var(--shadow-card)}.primary:hover{background:#0daf83}.empty{text-align:center;border:1px dashed #d7dae5;border-radius:var(--radius-lg);padding:30px 20px;margin-bottom:16px}.empty .machine-icon{margin:0 auto 12px;width:48px;height:48px}.empty h3{font-size:15px;margin:0 0 7px}.empty p{font-size:13px;color:var(--ink-soft);line-height:1.6;margin:0}.footer{text-align:center;color:var(--ink-soft);font-size:11px;line-height:1.7;margin:20px 0 0}.bike-field{display:flex;align-items:center;gap:12px}.bike-field label{font-size:13px;flex:1}.bike-field input{width:110px}.daily-total{display:flex;justify-content:space-between;align-items:center;padding:17px 4px 2px;font-size:13px}.daily-total strong{color:var(--primary-dark);font:700 18px Poppins,sans-serif}dialog{border:0;border-radius:22px;padding:24px;width:calc(100% - 32px);max-width:420px;box-shadow:0 18px 65px #20232e33}dialog::backdrop{background:#20232e66}dialog h2{margin-bottom:8px}dialog p{font-size:13px;color:var(--ink-soft);line-height:1.6}.dialog-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}.choice{display:flex;align-items:center;gap:12px;border:1px solid var(--border-soft);background:white;border-radius:14px;padding:12px;width:100%;text-align:left;margin-top:8px}.choice:hover{background:var(--primary-soft);border-color:var(--primary)}.choice b{display:block;font-size:13px}.choice small{display:block;color:var(--ink-soft);font-size:11px;margin-top:4px}.choice[disabled]{opacity:.45;cursor:default}.notice{background:#fff0f2;color:var(--danger);padding:12px;border-radius:12px;font-size:13px;margin-bottom:12px}.hidden{display:none!important}@media(max-width:360px){header{padding:16px 12px 0}main{padding:0 12px 25px}.set-head,.set-row{gap:6px;grid-template-columns:26px 1fr 1fr 28px}.volume .num{font-size:30px}}@media(prefers-reduced-motion:no-preference){.machine{animation:appear .18s ease-out}@keyframes appear{from{opacity:.5;transform:translateY(5px)}to{opacity:1;transform:none}}}
+*{box-sizing:border-box}html,body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,sans-serif;-webkit-font-smoothing:antialiased}button,input,select{font:inherit}button{cursor:pointer}button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid var(--primary);outline-offset:3px}h1,h2,h3,.num{font-family:Poppins,sans-serif}button{touch-action:manipulation}input,select{font-size:16px}.app{max-width:640px;margin:auto;min-height:100dvh}header{padding:20px 20px 0}.brand{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px}.brand-id{display:flex;align-items:center;gap:10px}h1{font-size:21px;letter-spacing:-.01em;margin:0;font-weight:800}.logo{display:grid;place-items:center;background:var(--primary);color:white;border-radius:9px;width:32px;height:32px}.icon-button{display:grid;place-items:center;background:white;border:0;border-radius:50%;width:38px;height:38px;color:var(--ink-soft);box-shadow:var(--shadow-card)}svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}.day-strip-wrap{display:flex;align-items:center;gap:3px;margin-bottom:18px}.day-strip{display:flex;overflow:auto;gap:8px;flex:1;padding:3px 6px;scrollbar-width:none}.day-strip::-webkit-scrollbar{display:none}.day-chip{flex:none;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;width:42px;height:58px;border:0;border-radius:999px;background:white;color:var(--ink-soft);box-shadow:var(--shadow-card);position:relative}.dc-dow{font-size:9px;text-transform:uppercase;font-weight:600}.dc-num{font-size:15px;font-weight:700}.day-chip.is-today{box-shadow:inset 0 0 0 2px var(--primary)}.day-chip.is-selected{background:var(--ink);color:white;box-shadow:none}.day-chip.has-data:after{content:'';width:4px;height:4px;border-radius:50%;background:var(--primary);position:absolute;bottom:6px}.nav-arrow{border:0;background:none;color:var(--ink-soft);padding:7px;font-size:22px}main{padding:0 20px 30px}.day-date{font-size:14px;color:var(--ink-soft);margin:0 0 16px}.facts{background:white;border-radius:var(--radius-lg);padding:22px 18px;box-shadow:var(--shadow-card);position:sticky;top:8px;z-index:2}.eyebrow{font-size:11px;text-transform:uppercase;letter-spacing:.06em;font-weight:700;color:var(--ink-soft)}.week-row{display:flex;justify-content:space-between;align-items:center;gap:10px}.week-row strong{font-size:13px;color:var(--primary-dark)}.volume{text-align:center;padding:20px 0}.volume .num{font-size:36px;font-weight:800;line-height:1.2;letter-spacing:-1px}.volume .unit{font-size:15px;color:var(--ink-soft)}.volume p{font-size:12px;color:var(--ink-soft);margin:5px 0 0}.stats{display:flex;border-top:1px solid var(--border-soft);padding-top:16px}.stat{flex:1;text-align:center}.stat+.stat{border-left:1px solid var(--border-soft)}.stat span{display:block;font-size:12px;color:var(--ink-soft);margin-bottom:5px}.stat strong{font:600 17px Poppins,sans-serif}.section-heading{display:flex;justify-content:space-between;align-items:center;margin:25px 0 14px}h2{font-size:17px;margin:0}.subtle{font-size:12px;color:var(--ink-soft)}.machine{background:white;border-radius:var(--radius-lg);box-shadow:var(--shadow-card);padding:18px;margin-bottom:14px}.machine-head{display:flex;align-items:center;gap:11px;margin-bottom:16px}.machine-icon{width:38px;height:38px;background:var(--primary-soft);color:var(--primary-dark);border-radius:12px;display:grid;place-items:center}.machine-icon svg{width:30px;height:30px;stroke-width:1.6}.machine-icon{flex-shrink:0}.machine-title{flex:1}.machine h3{font-size:14px;margin:0 0 3px}.machine-total{font-size:11px;color:var(--ink-soft)}.remove{border:0;background:none;color:var(--ink-soft);padding:8px;display:grid;place-items:center}.remove:hover{color:var(--danger)}.set-head,.set-row{display:grid;grid-template-columns:32px 1fr 1fr 32px;gap:10px;align-items:center}.set-head{font-size:10px;text-transform:uppercase;font-weight:600;letter-spacing:.04em;color:var(--ink-soft);margin-bottom:8px}.set-row{margin-bottom:9px}.set-number{width:27px;height:27px;border-radius:8px;background:var(--bg);display:grid;place-items:center;font-size:12px;font-weight:600;color:var(--ink-soft)}input,select{width:100%;min-width:0;border:1px solid var(--border-soft);border-radius:10px;background:var(--bg);color:var(--ink);padding:10px 11px;min-height:42px}input:invalid{border-color:var(--danger)}.add-set{border:0;background:var(--primary-soft);color:var(--primary-dark);border-radius:10px;width:100%;padding:11px;font-size:12px;font-weight:700;margin-top:5px}.primary{border:0;background:var(--primary);color:#073D2E;border-radius:14px;padding:15px;font-weight:700;width:100%;box-shadow:var(--shadow-card)}.primary:hover{background:#0daf83}.empty{text-align:center;border:1px dashed #d7dae5;border-radius:var(--radius-lg);padding:30px 20px;margin-bottom:16px}.empty .machine-icon{margin:0 auto 12px;width:48px;height:48px}.empty h3{font-size:15px;margin:0 0 7px}.empty p{font-size:13px;color:var(--ink-soft);line-height:1.6;margin:0}.footer{text-align:center;color:var(--ink-soft);font-size:11px;line-height:1.7;margin:20px 0 0}.bike-field{display:flex;align-items:center;gap:12px}.bike-field label{font-size:13px;flex:1}.bike-field input{width:110px}.daily-total{display:flex;justify-content:space-between;align-items:center;padding:17px 4px 2px;font-size:13px}.daily-total strong{color:var(--primary-dark);font:700 18px Poppins,sans-serif}dialog{border:0;border-radius:22px;padding:24px;width:calc(100% - 32px);max-width:420px;box-shadow:0 18px 65px #20232e33}dialog::backdrop{background:#20232e66}dialog h2{margin-bottom:8px}dialog p{font-size:13px;color:var(--ink-soft);line-height:1.6}.dialog-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}.choice{display:flex;align-items:center;gap:12px;border:1px solid var(--border-soft);background:white;border-radius:14px;padding:12px;width:100%;text-align:left;margin-top:8px}.choice:hover{background:var(--primary-soft);border-color:var(--primary)}.choice b{display:block;font-size:13px}.choice small{display:block;color:var(--ink-soft);font-size:11px;margin-top:4px}.choice[disabled]{opacity:.45;cursor:default}.notice{background:#fff0f2;color:var(--danger);padding:12px;border-radius:12px;font-size:13px;margin-bottom:12px}.hidden{display:none!important}@media(max-width:360px){header{padding:16px 12px 0}main{padding:0 12px 25px}.set-head,.set-row{gap:6px;grid-template-columns:26px 1fr 1fr 28px}.volume .num{font-size:30px}}@media(prefers-reduced-motion:no-preference){.machine{animation:appear .18s ease-out}@keyframes appear{from{opacity:.5;transform:translateY(5px)}to{opacity:1;transform:none}}}
+
+.sync-bar{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:0 0 14px}.sync-bar button{border:0;background:none;color:var(--primary-dark);font-weight:700;font-size:12px;padding:8px 0}.sync-bar span{font-size:11px;color:var(--ink-soft);text-align:right;overflow-wrap:anywhere}.sync-field{display:block;font-size:12px;font-weight:600;margin:16px 0 6px}.sync-check{display:flex;align-items:flex-start;gap:9px;font-size:12px;line-height:1.6;margin:16px 0}.sync-check input{width:18px;min-height:18px;flex-shrink:0}.sync-message{overflow-wrap:anywhere}.sync-links{font-size:12px;color:var(--primary-dark)}button:disabled{cursor:default;opacity:.5}#syncDialog{max-height:90dvh;overflow:auto}#conflictDialog{max-height:85dvh;overflow:auto}#conflictList .choice{line-height:1.6;font-size:12px}
 </style>
 </head>
 <body>
@@ -19,12 +21,12 @@
 <div class="day-strip-wrap"><button class="nav-arrow" id="previous" aria-label="Previous week">‹</button><div class="day-strip" id="days" aria-label="Choose workout day"></div><button class="nav-arrow" id="next" aria-label="Next week">›</button></div>
 </header>
 <main>
-<p class="day-date" id="date"></p>
+<div class="sync-bar"><button id="openSync">☁ Sync with Google Drive</button><span id="syncStatus" role="status">Offline · saved on this device</span></div><button id="conflicts" class="add-set hidden"></button><p class="day-date" id="date"></p>
 <div id="notice" class="notice hidden" role="alert"></div>
 <section class="facts" aria-label="Workout summary"><div class="week-row"><span class="eyebrow">This week</span><strong id="weekVolume">0 kg lifted</strong></div><div class="volume"><div><span class="num" id="volume">0</span> <span class="unit">kg</span></div><p>Total weight lifted today</p></div><div class="stats"><div class="stat"><span>Machines</span><strong id="machineCount">0</strong></div><div class="stat"><span>Sets</span><strong id="setCount">0</strong></div><div class="stat"><span>Warm-up</span><strong id="minutes">0 min</strong></div></div></section>
 <div class="section-heading"><h2>Your workout</h2><span class="subtle" id="workoutLabel">Ready when you are</span></div>
 <div id="machines"></div>
-<button class="primary" id="addMachine">＋ Add machine</button>
+<button class="primary" id="addMachine">+ Add machine</button>
 <div class="daily-total"><span>Total weight lifted</span><strong id="finalTotal" aria-live="polite">0 kg</strong></div>
 <p class="footer">Your progress, one set at a time.<br>Saved automatically in this browser.</p>
 </main>
@@ -32,6 +34,17 @@
 <dialog id="picker" aria-labelledby="pickerTitle"><div class="dialog-head"><h2 id="pickerTitle">Add machine</h2><button class="remove" data-close="picker" aria-label="Close">✕</button></div><p>Choose a machine for this workout.</p><div id="choices"></div></dialog>
 <dialog id="about" aria-labelledby="aboutTitle"><div class="dialog-head"><h2 id="aboutTitle">Your workout diary</h2><button class="remove" data-close="about" aria-label="Close">✕</button></div><p>Select a day, add your machines and log each set. Weights range from 20 to 70 kg in 1 kg steps.</p><p>Total weight lifted = reps × weight, added across all your sets. Warm-up bike time is recorded separately.</p><p>Your diary is saved on this device, in this browser. Clearing browser data also clears your diary.</p></dialog>
 <dialog id="confirm" aria-labelledby="confirmTitle"><h2 id="confirmTitle">Remove machine?</h2><p>This will remove the machine and its sets from this day.</p><button class="primary" id="confirmRemove">Remove machine</button><button class="add-set" data-close="confirm">Keep machine</button></dialog>
+<dialog id="syncDialog" aria-labelledby="syncTitle">
+<div class="dialog-head"><h2 id="syncTitle">Google Drive sync</h2><button class="remove" data-close="syncDialog" aria-label="Close">✕</button></div>
+<p>Keep your workouts in your own Google Drive. Connect the same Google account on each device. No separate password is needed.</p>
+<p id="connectedAccount"></p>
+<details id="developerSetup"><summary class="sync-links">App owner setup</summary><p>The app owner configures this once. Users only connect their Google account.</p><label class="sync-field" for="clientId">Google OAuth client ID</label><input id="clientId" type="text" placeholder="…apps.googleusercontent.com" autocomplete="off" spellcheck="false"><a class="sync-links" href="GOOGLE_DRIVE_SETUP.md" target="_blank" rel="noopener">One-time setup guide</a></details>
+<p>Your data is protected by your Google account’s Drive permissions. Weights does not add its own encryption.</p>
+<label class="sync-check"><input id="uploadConsent" type="checkbox"><span>The workouts in this browser belong to the Google account I’m connecting. Merge them into that account’s diary.</span></label>
+<button id="connectDrive" class="primary">Connect Google Drive</button><button id="syncNow" class="add-set" disabled>Sync now</button><button id="lockSync" class="add-set" disabled>Disconnect</button>
+<p id="syncMessage" class="sync-message" role="status">Connect to enable sync. Google may ask you to reconnect when your session expires.</p>
+</dialog>
+<dialog id="conflictDialog" aria-labelledby="conflictTitle"><div class="dialog-head"><h2 id="conflictTitle">Choose a workout version</h2><button class="remove" data-close="conflictDialog" aria-label="Close">✕</button></div><p>Different devices edited the same day. Choose the version to keep for each day. Every version remains in the sync history.</p><div id="conflictList"></div></dialog>
 <script>
 'use strict';
 // Single-file architecture, matching MacroDiario: local state, persistence and DOM rendering.
@@ -46,6 +59,25 @@ const MACHINES = [
 ];
 const $ = id => document.getElementById(id);
 const icon = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 7v10M3 9v6m15-8v10m3-8v6M6 12h12"/></svg>';
+// Exercise diagrams use the same lightweight SVG system as the rest of the app.
+const exercisePaths = {
+ bike:'<circle cx="7" cy="23" r="5"/><circle cx="25" cy="23" r="5"/><circle cx="18" cy="5" r="2"/><path d="m16 10-5 6 7 3-3 6m-4-9 10-1 4 8m-9-13 6 3h5M7 23l5-7"/>',
+ abs:'<circle cx="23" cy="12" r="2.5"/><path d="M3 26h26M6 24l6-9 7 5 3-4m-3 4-6 4H6m17-8 4 2"/>',
+ pulldown:'<circle cx="16" cy="12" r="2.5"/><path d="M4 29V3h24v26M8 6h16m-8 0v3m-8 2 3 7h10l3-7m-8 5v7m-5 5 1-5h8l1 5M10 20h12"/>',
+ quads:'<circle cx="11" cy="7" r="2.5"/><path d="M5 12v12h12M11 12v7h8l7-6m-7 6 7 5M5 28v-4m12 0v4m7-17 4 4m-4 7 4 4M11 14l6 2"/>',
+ calves:'<circle cx="16" cy="5" r="2.5"/><path d="M16 10v9m-4-8h8m-8 0-3 6m11-6 3 6m-7 2-4 7h-3m7-7 4 7h3M6 29h20M7 11v6m18-6v6M7 14h5m8 0h5"/>',
+ biceps:'<circle cx="16" cy="5" r="2.5"/><path d="M16 10v11m-5-10h10m-10 0-2 8-5-5m17-3 2 8 5-5M16 21l-5 8m5-8 5 8M2 11l4 4m20 0 4-4"/>'
+};
+function exerciseIcon(type){return '<svg viewBox="0 0 32 32" aria-hidden="true">'+exercisePaths[type==='calves'?'quads':type]+'</svg>';}
+// Ignore future workouts when choosing a starting weight for a historical day.
+function previousWeight(type){
+ for(const key of Object.keys(logs || {}).filter(key=>key<=selected).sort().reverse()){
+  const machine=logs[key].find(m=>m.type===type);
+  if(machine?.sets?.length)return machine.sets.at(-1).weight;
+ }
+ return 20;
+}
+function defaultSet(type){return {reps:12,weight:previousWeight(type)};}
 const trash = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M9 7V4h6v3M6 7l1 13h10l1-13M10 11v5m4-5v5"/></svg>';
 function iso(date){return date.getFullYear()+'-'+String(date.getMonth()+1).padStart(2,'0')+'-'+String(date.getDate()).padStart(2,'0');}
 function dateOf(key){return new Date(key+'T12:00:00');}
@@ -60,7 +92,7 @@ function validLogs(value){
 }
 try{const raw=localStorage.getItem(STORAGE_KEY);if(raw){const parsed=JSON.parse(raw);if(!validLogs(parsed))throw Error('Invalid diary');logs=parsed;}}catch(error){message('Your saved diary could not be loaded. Existing saved data will be preserved.');logs=null;}
 function day(){return logs?.[selected]||[];}
-function persist(){try{localStorage.setItem(STORAGE_KEY,JSON.stringify(logs));$('notice').classList.add('hidden');}catch(error){message('Changes could not be saved. Keep this page open and free some browser storage before trying again.');}}
+function persist(){try{recordLocalChange();$('notice').classList.add('hidden');}catch(error){syncReady=false;syncStatus('Sync paused · local save failed');message('Changes could not be saved. Keep this page open and free some browser storage, then reload after backing up your workouts.');}}
 function total(list){return list.reduce((sum,m)=>sum+(m.type==='bike'?0:m.sets.reduce((v,s)=>v+s.reps*s.weight,0)),0);}
 function renderDays(){
  $('days').innerHTML=Array.from({length:7},(_,i)=>{const key=shift(week,i),d=dateOf(key);return '<button class="day-chip'+(key===selected?' is-selected':'')+(key===iso(new Date())?' is-today':'')+(logs?.[key]?.length?' has-data':'')+'" data-day="'+key+'" aria-label="'+d.toLocaleDateString('en-GB',{weekday:'long',day:'numeric',month:'long',year:'numeric'})+'" aria-pressed="'+(key===selected)+'"><span class="dc-dow">'+d.toLocaleDateString('en-GB',{weekday:'short'})+'</span><span class="dc-num">'+d.getDate()+'</span></button>';}).join('');
@@ -69,21 +101,210 @@ function renderSummary(){const list=day(),volume=total(list);$('volume').textCon
 function weightOptions(weight){return Array.from({length:51},(_,i)=>'<option value="'+(i+20)+'"'+(i+20===weight?' selected':'')+'>'+(i+20)+'</option>').join('');}
 function render(){
  renderDays();$('date').textContent=(selected===iso(new Date())?'Today · ':'')+dateOf(selected).toLocaleDateString('en-GB',{weekday:'long',day:'numeric',month:'long',year:'numeric'});
- $('machines').innerHTML=day().map(m=>{const def=MACHINES.find(t=>t.id===m.type);return '<section class="machine" data-type="'+m.type+'" aria-label="'+def.name+'"><div class="machine-head"><span class="machine-icon">'+icon+'</span><div class="machine-title"><h3>'+def.name+'</h3><span class="machine-total" '+(m.type!=='bike'?'data-machine-total="'+m.type+'"':'')+'>'+(m.type==='bike'?'Ease into your workout':number.format(total([m]))+' kg lifted')+'</span></div><button class="remove" data-remove-machine="'+m.type+'" aria-label="Remove '+def.name+'">'+trash+'</button></div>'+(m.type==='bike'?'<div class="bike-field"><label for="bikeMinutes">Warm-up time (min)</label><input id="bikeMinutes" type="number" inputmode="decimal" min="0" max="1440" step="0.1" value="'+m.minutes+'" data-minutes></div>':'<div class="set-head" aria-hidden="true"><span>Set</span><span>Reps</span><span>Weight · kg</span><span></span></div>'+m.sets.map((s,i)=>'<div class="set-row"><span class="set-number">'+(i+1)+'</span><input type="number" inputmode="numeric" min="1" max="999" step="1" value="'+s.reps+'" data-reps="'+i+'" aria-label="'+def.name+' set '+(i+1)+' reps"><select data-weight="'+i+'" aria-label="'+def.name+' set '+(i+1)+' weight in kilograms">'+weightOptions(s.weight)+'</select><button class="remove" data-remove-set="'+i+'" aria-label="Remove '+def.name+' set '+(i+1)+'">×</button></div>').join('')+'<button class="add-set" data-add-set>＋ Add set</button>')+'</section>';}).join('')||'<div class="empty"><span class="machine-icon">'+icon+'</span><h3>A fresh start</h3><p>Add your first machine to start<br>logging this day’s workout.</p></div>';
- $('addMachine').disabled=logs===null;renderSummary();
+ $('machines').innerHTML=day().map(m=>{const def=MACHINES.find(t=>t.id===m.type);return '<section class="machine" data-type="'+m.type+'" aria-label="'+def.name+'"><div class="machine-head"><span class="machine-icon">'+exerciseIcon(m.type)+'</span><div class="machine-title"><h3>'+def.name+'</h3><span class="machine-total" '+(m.type!=='bike'?'data-machine-total="'+m.type+'"':'')+'>'+(m.type==='bike'?'Ease into your workout':number.format(total([m]))+' kg lifted')+'</span></div><button class="remove" data-remove-machine="'+m.type+'" aria-label="Remove '+def.name+'">'+trash+'</button></div>'+(m.type==='bike'?'<div class="bike-field"><label for="bikeMinutes">Warm-up time (min)</label><input id="bikeMinutes" type="number" inputmode="decimal" min="0" max="1440" step="0.1" value="'+m.minutes+'" data-minutes></div>':'<div class="set-head" aria-hidden="true"><span>Set</span><span>Reps</span><span>Weight · kg</span><span></span></div>'+m.sets.map((s,i)=>'<div class="set-row"><span class="set-number">'+(i+1)+'</span><input type="number" inputmode="numeric" min="1" max="999" step="1" value="'+s.reps+'" data-reps="'+i+'" aria-label="'+def.name+' set '+(i+1)+' reps"><select data-weight="'+i+'" aria-label="'+def.name+' set '+(i+1)+' weight in kilograms">'+weightOptions(s.weight)+'</select><button class="remove" data-remove-set="'+i+'" aria-label="Remove '+def.name+' set '+(i+1)+'">×</button></div>').join('')+'<button class="add-set" data-add-set>+ Add set</button>')+'</section>';}).join('')||'<div class="empty"><span class="machine-icon">'+icon+'</span><h3>A fresh start</h3><p>Add your first machine to start<br>logging this day’s workout.</p></div>';
+ $('addMachine').disabled=logs===null;renderSummary();if(typeof updateSyncButtons==='function'&&typeof syncBusy!=='undefined')updateSyncButtons();
 }
 function mutate(fn){if(logs===null)return;if(!logs[selected])logs[selected]=[];fn();if(!logs[selected].length)delete logs[selected];persist();render();}
 $('days').addEventListener('click',e=>{const b=e.target.closest('[data-day]');if(b){selected=b.dataset.day;render();}});
 for(const [id,offset] of [['previous',-7],['next',7]])$(id).addEventListener('click',()=>{week=shift(week,offset);selected=shift(selected,offset);render();});
-$('addMachine').addEventListener('click',()=>{$('choices').innerHTML=MACHINES.map(m=>{const exists=day().some(x=>x.type===m.id);return '<button class="choice" data-add-machine="'+m.id+'"'+(exists?' disabled':'')+'><span class="machine-icon">'+icon+'</span><span><b>'+m.name+'</b><small>'+(exists?'Already added':m.detail)+'</small></span></button>';}).join('');$('picker').showModal();});
-$('choices').addEventListener('click',e=>{const b=e.target.closest('[data-add-machine]');if(!b||b.disabled)return;const type=b.dataset.addMachine;mutate(()=>logs[selected].push(type==='bike'?{type,minutes:0}:{type,sets:[]}));$('picker').close();});
-$('machines').addEventListener('click',e=>{const card=e.target.closest('[data-type]');if(!card)return;const type=card.dataset.type,m=day().find(m=>m.type===type);if(e.target.closest('[data-remove-machine]')){pendingRemove={date:selected,type};$('confirm').showModal();}else if(e.target.closest('[data-add-set]')){mutate(()=>m.sets.push({reps:10,weight:m.sets.at(-1)?.weight||20}));}else{const b=e.target.closest('[data-remove-set]');if(b)mutate(()=>m.sets.splice(Number(b.dataset.removeSet),1));}});
+$('addMachine').addEventListener('click',()=>{$('choices').innerHTML=MACHINES.map(m=>{const exists=day().some(x=>x.type===m.id);return '<button class="choice" data-add-machine="'+m.id+'"'+(exists?' disabled':'')+'><span class="machine-icon">'+exerciseIcon(m.id)+'</span><span><b>'+m.name+'</b><small>'+(exists?'Already added':m.detail)+'</small></span></button>';}).join('');$('picker').showModal();});
+$('choices').addEventListener('click',e=>{const b=e.target.closest('[data-add-machine]');if(!b||b.disabled)return;const type=b.dataset.addMachine;mutate(()=>logs[selected].push(type==='bike'?{type,minutes:0}:{type,sets:[defaultSet(type)]}));$('picker').close();});
+$('machines').addEventListener('click',e=>{const card=e.target.closest('[data-type]');if(!card)return;const type=card.dataset.type,m=day().find(m=>m.type===type);if(e.target.closest('[data-remove-machine]')){pendingRemove={date:selected,type};$('confirm').showModal();}else if(e.target.closest('[data-add-set]')){mutate(()=>m.sets.push(defaultSet(type)));}else{const b=e.target.closest('[data-remove-set]');if(b)mutate(()=>m.sets.splice(Number(b.dataset.removeSet),1));}});
 $('machines').addEventListener('change',e=>{const el=e.target,card=el.closest('[data-type]');if(!card||!el.matches('input,select'))return;const m=day().find(m=>m.type===card.dataset.type);if(!el.checkValidity()){el.reportValidity();return;}const value=Number(el.value);if(el.value===''||!Number.isFinite(value)){el.setCustomValidity('Enter a valid number.');el.reportValidity();return;}el.setCustomValidity('');if(el.hasAttribute('data-minutes'))m.minutes=value;else if(el.hasAttribute('data-reps'))m.sets[Number(el.dataset.reps)].reps=value;else if(el.hasAttribute('data-weight'))m.sets[Number(el.dataset.weight)].weight=value;persist();renderSummary();});
 $('machines').addEventListener('input',e=>{if(e.target.matches('input'))e.target.setCustomValidity('');});
 $('confirmRemove').addEventListener('click',()=>{if(pendingRemove&&pendingRemove.date===selected)mutate(()=>logs[selected]=day().filter(m=>m.type!==pendingRemove.type));pendingRemove=null;$('confirm').close();});
 $('help').addEventListener('click',()=>$('about').showModal());
 document.querySelectorAll('[data-close]').forEach(b=>b.addEventListener('click',()=>$(b.dataset.close).close()));
-render();
+// Append-only Drive sync protected by the user’s Google Drive permissions. Each revision is a separate immutable file.
+// Concurrent edits to one day remain available until the user chooses a version.
+const GOOGLE_CLIENT_ID = '129980170490-qkd2idjrog1i72nicnapommnte6c5t9t.apps.googleusercontent.com'; // Public OAuth app ID; not a secret.
+const SYNC_STORE = 'weights_sync_v2';
+const CLIENT_STORE = 'weights_google_client_id';
+const DRIVE_SCOPE = 'https://www.googleapis.com/auth/drive.appdata';
+const FILE_PREFIX = 'weights-revision-v3-';
+let syncState = {version:2,account:null,records:[]};
+let syncReady = false, syncBusy = false, syncTimer, token = '', tokenUntil = 0;
+let activeAccount = '', generation = 0, oauthLoading;
+let remoteIds = new Set();
+function copy(value){return JSON.parse(JSON.stringify(value));}
+function heads(records,date){
+ const revisions=records.filter(r=>r.date===date), superseded=new Set(revisions.flatMap(r=>r.parents));
+ return revisions.filter(r=>!superseded.has(r.id)).sort((a,b)=>a.time-b.time||a.id.localeCompare(b.id));
+}
+function projected(records){
+ const result={};for(const date of new Set(records.map(r=>r.date))){const latest=heads(records,date).at(-1);if(latest?.machines.length)result[date]=copy(latest.machines);}return result;
+}
+function validRecord(r){return r&&/^[a-f0-9-]{36}$/.test(r.id)&&Number.isSafeInteger(r.time)&&r.time>=0&&Array.isArray(r.parents)&&new Set(r.parents).size===r.parents.length&&r.parents.every(id=>typeof id==='string'&&/^[a-f0-9-]{36}$/.test(id)&&id!==r.id)&&typeof r.date==='string'&&validLogs({[r.date]:r.machines});}
+function validateRecords(records){
+ if(!Array.isArray(records)||records.length>20000||!records.every(validRecord))throw Error('Invalid sync data. No cloud changes were applied.');
+ const byId=new Map(records.map(r=>[r.id,r]));if(byId.size!==records.length)throw Error('Duplicate sync revisions.');
+ const done=new Set(), visiting=new Set();
+ function visit(r){if(visiting.has(r.id))throw Error('Invalid sync history.');if(done.has(r.id))return;visiting.add(r.id);for(const id of r.parents){const p=byId.get(id);if(!p||p.date!==r.date)throw Error('Incomplete sync history. Try syncing again.');visit(p);}visiting.delete(r.id);done.add(r.id);}
+ records.forEach(visit);return records;
+}
+function newRevision(date,machines,parents){return {id:crypto.randomUUID(),date,machines:copy(machines),parents:parents.map(p=>p.id),time:Date.now()};}
+function writeState(state){localStorage.setItem(SYNC_STORE,JSON.stringify(state));}
+function syncStatus(text){$('syncStatus').textContent=text;$('syncMessage').textContent=text;}
+function refreshConflicts(){
+ const count=[...new Set(syncState.records.map(r=>r.date))].filter(date=>heads(syncState.records,date).length>1).length;
+ $('conflicts').textContent=count?'Review '+count+' conflicting day'+(count===1?'':'s'):'';$('conflicts').classList.toggle('hidden',!count);
+}
+function recordLocalChange(){
+ if(!syncReady)return;
+ const current=logs[selected]||[], tips=heads(syncState.records,selected), previous=tips.at(-1)?.machines||[];
+ // A normal edit never silently resolves competing versions.
+ if(JSON.stringify(current)!==JSON.stringify(previous)){
+  const state={...syncState,records:[...syncState.records,newRevision(selected,current,tips.length?[tips.at(-1)]:[])]};
+  writeState(state);syncState=state;
+ }else writeState(syncState);
+ refreshConflicts();scheduleSync();
+}
+function scheduleSync(){clearTimeout(syncTimer);if(token){syncStatus('Changes pending sync');syncTimer=setTimeout(()=>syncNow(),1800);}}
+function initializeSync(){
+ try{
+  const stored=localStorage.getItem(SYNC_STORE);
+  if(stored){const state=JSON.parse(stored);if(state.version!==2||(state.account!==null&&typeof state.account!=='string'))throw Error('Invalid local sync data');validateRecords(state.records);syncState=state;logs=projected(state.records);}
+  else if(logs!==null){syncState.records=Object.entries(logs).map(([date,machines])=>newRevision(date,machines,[]));writeState(syncState);}
+  syncReady=logs!==null;
+ }catch(error){logs=null;message('Local sync data could not be loaded. Saved data has been preserved.');}
+ try{$('clientId').value=GOOGLE_CLIENT_ID||localStorage.getItem(CLIENT_STORE)||'';}catch{}
+ $('developerSetup').open=!$('clientId').value;
+ $('developerSetup').classList.toggle('hidden',!!GOOGLE_CLIENT_ID);
+ render();refreshConflicts();
+}
+function readRevision(payload,id){
+ if(payload?.version!==3||!validRecord(payload.record)||payload.record.id!==id)throw Error('Invalid workout revision. No cloud changes were applied.');
+ return payload.record;
+}
+async function driveRequest(path,options={}){
+ if(!token||Date.now()>=tokenUntil)throw Error('Google session expired. Connect Google Drive again.');
+ const response=await fetch('https://www.googleapis.com/'+path,{...options,headers:{...options.headers,Authorization:'Bearer '+token},cache:'no-store'});
+ if(response.status===401){token='';throw Error('Google session expired. Connect Google Drive again.');}
+ if(!response.ok)throw Error(response.status===403?'Drive permission denied. Check Drive API setup and reconnect.':'Drive request failed ('+response.status+'). Your local data is safe; try again.');
+ return response.json();
+}
+async function listRemote(){
+ const files=[];let pageToken;
+ do{const query=new URLSearchParams({spaces:'appDataFolder',q:"trashed = false and name contains 'weights-revision-'",fields:'nextPageToken,files(id,name)',pageSize:'1000'});if(pageToken)query.set('pageToken',pageToken);
+ const page=await driveRequest('drive/v3/files?'+query);files.push(...(page.files||[]));pageToken=page.nextPageToken;if(files.length>20000)throw Error('Sync history is too large.');}while(pageToken);
+ return files;
+}
+async function uploadRevision(record){
+ const payload={version:3,record}, boundary='weights_'+crypto.randomUUID();
+ const metadata={name:FILE_PREFIX+record.id+'.json',parents:['appDataFolder'],mimeType:'application/json'};
+ const body='--'+boundary+'\r\nContent-Type: application/json; charset=UTF-8\r\n\r\n'+JSON.stringify(metadata)+'\r\n--'+boundary+'\r\nContent-Type: application/json\r\n\r\n'+JSON.stringify(payload)+'\r\n--'+boundary+'--';
+ await driveRequest('upload/drive/v3/files?uploadType=multipart&fields=id',{method:'POST',headers:{'Content-Type':'multipart/related; boundary='+boundary},body});
+}
+async function syncNow(){
+ if(syncBusy||!token||!syncReady)return;
+ if($('machines').contains(document.activeElement))return;
+ syncBusy=true;const attempt=generation;updateSyncButtons();syncStatus('Syncing workouts…');
+ try{
+  const files=await listRemote(), additions=[], discovered=new Set();
+  for(const file of files){
+   const match=new RegExp('^'+FILE_PREFIX+'([a-f0-9-]{36})\\.json$').exec(file.name);if(!match)continue;
+   const id=match[1];if(discovered.has(id))continue;if(remoteIds.has(id)){discovered.add(id);continue;}
+   const envelope=await driveRequest('drive/v3/files/'+encodeURIComponent(file.id)+'?alt=media');
+   const record=readRevision(envelope,id);additions.push(record);discovered.add(id);
+  }
+  if(attempt!==generation)return;
+  const merged=new Map(syncState.records.map(r=>[r.id,r]));
+  for(const r of additions){if(merged.has(r.id)&&JSON.stringify(merged.get(r.id))!==JSON.stringify(r))throw Error('Conflicting revision identifiers.');merged.set(r.id,r);}
+  // Old encrypted files are never overwritten or silently ignored. A device
+  // holding their original local revisions can republish them without a password.
+  for(const file of files){const legacy=/^weights-revision-v2-([a-f0-9-]{36})\.json$/.exec(file.name);if(legacy&&!merged.has(legacy[1]))throw Error('Older encrypted workouts need migration. Connect from the original device with its saved workouts first. See the setup guide.');}
+  const records=validateRecords([...merged.values()]);
+  const state={version:2,account:activeAccount,records};writeState(state);syncState=state;logs=projected(records);remoteIds=discovered;
+  // Do not replace a focused number input while someone is typing.
+  if(!$('machines').contains(document.activeElement))render();else renderSummary();refreshConflicts();
+  for(const record of records){if(attempt!==generation)return;if(remoteIds.has(record.id))continue;await uploadRevision(record);remoteIds.add(record.id);}
+  if(attempt!==generation)return;
+  syncStatus('Synced · '+new Date().toLocaleTimeString('en-GB',{hour:'2-digit',minute:'2-digit'}));
+ }catch(error){if(attempt===generation)syncStatus(error.message||'Sync failed. Your local workouts are safe.');}
+ finally{syncBusy=false;updateSyncButtons();}
+}
+function updateSyncButtons(){
+ $('connectDrive').disabled=syncBusy;$('syncNow').disabled=syncBusy||!token;$('lockSync').disabled=syncBusy||!token;
+ $('clientId').disabled=!!token||syncBusy;
+ $('addMachine').disabled=syncBusy||logs===null||!syncReady;
+ $('machines').querySelectorAll('button,input,select').forEach(el=>el.disabled=syncBusy||!syncReady);
+}
+function lockSync(){
+ generation++;$('connectedAccount').textContent='';clearTimeout(syncTimer);token='';tokenUntil=0;activeAccount='';remoteIds.clear();syncStatus('Disconnected · saved workouts remain on this device');updateSyncButtons();
+}
+function loadGoogle(){
+ if(window.google?.accounts?.oauth2)return Promise.resolve();
+ return oauthLoading ||= new Promise((resolve,reject)=>{
+  const script=document.createElement('script');script.src='https://accounts.google.com/gsi/client';script.async=true;script.onload=resolve;script.onerror=()=>{oauthLoading=null;reject(Error('Google sign-in could not load. Check your connection and try again.'));};document.head.appendChild(script);
+ });
+}
+function openSync(){
+ $('syncDialog').showModal();updateSyncButtons();
+ if(location.protocol==='file:')syncStatus('Open Weights over HTTPS or localhost to connect Google Drive.');
+ else loadGoogle().then(()=>{$('connectDrive').textContent='Connect Google Drive';}).catch(error=>syncStatus(error.message));
+}
+function connectDrive(){
+ if(!syncReady){syncStatus('Fix local diary storage before connecting.');return;}
+ if(location.protocol==='file:'||!window.isSecureContext){syncStatus('Google Drive sync requires HTTPS or localhost.');return;}
+ const clientId=GOOGLE_CLIENT_ID||$('clientId').value.trim();
+ if(!/^[a-zA-Z0-9_-]+\.apps\.googleusercontent\.com$/.test(clientId)){syncStatus('Enter the Google OAuth web client ID. See the setup guide.');return;}
+ if(!$('uploadConsent').checked){syncStatus('Confirm that this browser’s workouts belong to the Google account you will connect.');return;}
+ if(!window.google?.accounts?.oauth2){syncStatus('Google sign-in is loading. Try Connect again in a moment.');loadGoogle().catch(error=>syncStatus(error.message));return;}
+ try{localStorage.setItem(CLIENT_STORE,clientId);}catch{syncStatus('Browser storage is unavailable.');return;}
+ const attempt=++generation;syncBusy=true;updateSyncButtons();syncStatus('Choose your Google account…');
+ const client=google.accounts.oauth2.initTokenClient({client_id:clientId,scope:DRIVE_SCOPE,include_granted_scopes:false,
+  error_callback:()=>{syncBusy=false;syncStatus('Google sign-in was closed or blocked. Try again.');updateSyncButtons();},
+  callback:async response=>{
+   if(attempt!==generation)return;
+   try{
+    if(response.error||!response.access_token)throw Error('Google connection was not authorized.');
+    if(!google.accounts.oauth2.hasGrantedAllScopes(response,DRIVE_SCOPE))throw Error('Allow access to the app’s Drive data to sync.');
+    token=response.access_token;tokenUntil=Date.now()+Number(response.expires_in)*1000-30000;
+    const about=await driveRequest('drive/v3/about?fields=user(permissionId,emailAddress)');activeAccount=about.user?.permissionId;
+    if(!activeAccount)throw Error('Could not identify this Drive account.');
+    if(syncState.account&&syncState.account!==activeAccount)throw Error('This browser’s diary belongs to another Google account. Use a separate browser profile for a different account.');
+    // Check existing revisions before allowing uploads or binding this device.
+    remoteIds.clear();
+    $('connectedAccount').textContent='Google Drive: '+(about.user.emailAddress||'connected');
+
+    syncBusy=false;await syncNow();
+   }catch(error){lockSync();syncStatus(error.message||'Connection failed.');}
+   finally{syncBusy=false;updateSyncButtons();}
+  }
+ });
+ try{client.requestAccessToken({prompt:'select_account'});}catch(error){syncBusy=false;syncStatus('Google sign-in could not open. Allow pop-ups and try again.');updateSyncButtons();}
+}
+function openConflicts(){
+ const dates=[...new Set(syncState.records.map(r=>r.date))].filter(date=>heads(syncState.records,date).length>1);
+ $('conflictList').replaceChildren();
+ for(const date of dates){const section=document.createElement('section'),title=document.createElement('h3');title.textContent=date;section.appendChild(title);
+ for(const revision of heads(syncState.records,date)){
+  const button=document.createElement('button');button.className='choice';
+  button.textContent=revision.machines.length?revision.machines.map(m=>MACHINES.find(t=>t.id===m.type).name+': '+(m.type==='bike'?m.minutes+' min':m.sets.map(s=>s.reps+' × '+s.weight+' kg').join(', ')||'no sets')).join(' · '):'Empty workout (deleted)';
+  button.title='Keep this version, edited '+new Date(revision.time).toLocaleString('en-GB');
+  button.addEventListener('click',()=>{
+   const state={...syncState,records:[...syncState.records,newRevision(date,revision.machines,heads(syncState.records,date))]};
+   try{writeState(state);syncState=state;logs=projected(state.records);render();refreshConflicts();scheduleSync();openConflicts();}catch{syncStatus('Not enough browser storage to save your choice.');}
+  });section.appendChild(button);
+ }$('conflictList').appendChild(section);}
+ if(!dates.length)$('conflictList').textContent='All conflicts resolved.';
+ if(!$('conflictDialog').open)$('conflictDialog').showModal();
+}
+$('machines').addEventListener('focusout',()=>{clearTimeout(syncTimer);if(token)syncTimer=setTimeout(()=>syncNow(),1800);});
+$('openSync').addEventListener('click',openSync);
+$('connectDrive').addEventListener('click',connectDrive);
+$('syncNow').addEventListener('click',()=>syncNow());
+$('lockSync').addEventListener('click',lockSync);
+$('conflicts').addEventListener('click',openConflicts);
+window.addEventListener('online',()=>syncNow());
+document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='visible')syncNow();});
+window.addEventListener('storage',event=>{
+ if(event.key!==SYNC_STORE)return;
+ // Another tab may own a different account or have pending edits. Reload explicitly.
+ lockSync();syncReady=false;logs=null;render();message('This diary changed in another tab. Reload this page before editing or syncing.');
+});
+initializeSync();
+
 </script>
 </body>
 </html>
