@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#F4F5FA">
 <title>Weights — Workout diary</title>
+<link rel="icon" type="image/svg+xml" sizes="any" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%228%22%20fill%3D%22%230FBF8F%22%2F%3E%3Cg%20fill%3D%22%23FFFFFF%22%3E%3Crect%20x%3D%223%22%20y%3D%2211%22%20width%3D%224%22%20height%3D%2210%22%20rx%3D%221.5%22%2F%3E%3Crect%20x%3D%227%22%20y%3D%227%22%20width%3D%225%22%20height%3D%2218%22%20rx%3D%221.5%22%2F%3E%3Crect%20x%3D%2212%22%20y%3D%2214%22%20width%3D%228%22%20height%3D%224%22%2F%3E%3Crect%20x%3D%2220%22%20y%3D%227%22%20width%3D%225%22%20height%3D%2218%22%20rx%3D%221.5%22%2F%3E%3Crect%20x%3D%2225%22%20y%3D%2211%22%20width%3D%224%22%20height%3D%2210%22%20rx%3D%221.5%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
@@ -32,7 +33,7 @@
 </main>
 </div>
 <dialog id="picker" aria-labelledby="pickerTitle"><div class="dialog-head"><h2 id="pickerTitle">Add machine</h2><button class="remove" data-close="picker" aria-label="Close">✕</button></div><p>Choose a machine for this workout.</p><div id="choices"></div></dialog>
-<dialog id="about" aria-labelledby="aboutTitle"><div class="dialog-head"><h2 id="aboutTitle">Your workout diary</h2><button class="remove" data-close="about" aria-label="Close">✕</button></div><p>Select a day, add your machines and log each set. Weights range from 20 to 70 kg in 1 kg steps.</p><p>Total weight lifted = reps × weight, added across all your sets. Warm-up bike time is recorded separately.</p><p>Your diary is saved on this device, in this browser. Clearing browser data also clears your diary.</p></dialog>
+<dialog id="about" aria-labelledby="aboutTitle"><div class="dialog-head"><h2 id="aboutTitle">Your workout diary</h2><button class="remove" data-close="about" aria-label="Close">✕</button></div><p>Select a day, add your machines and log each set. Weights range from 20 to 70 kg in 1 kg steps.</p><p>Total weight lifted = reps × weight, added across all your sets. Warm-up bike time is recorded separately.</p><p>Your diary is saved on this device, in this browser. Clearing browser data also clears your diary.</p><button id="manageSync" class="add-set">Manage Google Drive connection</button></dialog>
 <dialog id="confirm" aria-labelledby="confirmTitle"><h2 id="confirmTitle">Remove machine?</h2><p>This will remove the machine and its sets from this day.</p><button class="primary" id="confirmRemove">Remove machine</button><button class="add-set" data-close="confirm">Keep machine</button></dialog>
 <dialog id="syncDialog" aria-labelledby="syncTitle">
 <div class="dialog-head"><h2 id="syncTitle">Google Drive sync</h2><button class="remove" data-close="syncDialog" aria-label="Close">✕</button></div>
@@ -123,7 +124,7 @@ const CLIENT_STORE = 'weights_google_client_id';
 const DRIVE_SCOPE = 'https://www.googleapis.com/auth/drive.appdata';
 const FILE_PREFIX = 'weights-revision-v3-';
 let syncState = {version:2,account:null,records:[]};
-let syncReady = false, syncBusy = false, syncTimer, token = '', tokenUntil = 0;
+let syncReady = false, syncBusy = false, syncTimer, autoSyncPending = false, token = '', tokenUntil = 0;
 let activeAccount = '', generation = 0, oauthLoading;
 let remoteIds = new Set();
 function copy(value){return JSON.parse(JSON.stringify(value));}
@@ -156,10 +157,10 @@ function recordLocalChange(){
  if(JSON.stringify(current)!==JSON.stringify(previous)){
   const state={...syncState,records:[...syncState.records,newRevision(selected,current,tips.length?[tips.at(-1)]:[])]};
   writeState(state);syncState=state;
- }else writeState(syncState);
+ }else return;
  refreshConflicts();scheduleSync();
 }
-function scheduleSync(){clearTimeout(syncTimer);if(token){syncStatus('Changes pending sync');syncTimer=setTimeout(()=>syncNow(),1800);}}
+function scheduleSync(){autoSyncPending=true;clearTimeout(syncTimer);if(token){syncStatus('Changes pending sync');syncTimer=setTimeout(()=>syncNow(),1800);}}
 function initializeSync(){
  try{
   const stored=localStorage.getItem(SYNC_STORE);
@@ -198,6 +199,7 @@ async function uploadRevision(record){
 async function syncNow(){
  if(syncBusy||!token||!syncReady)return;
  if($('machines').contains(document.activeElement))return;
+ autoSyncPending=false;clearTimeout(syncTimer);
  syncBusy=true;const attempt=generation;updateSyncButtons();syncStatus('Syncing workouts…');
  try{
   const files=await listRemote(), additions=[], discovered=new Set();
@@ -221,9 +223,11 @@ async function syncNow(){
   if(attempt!==generation)return;
   syncStatus('Synced · '+new Date().toLocaleTimeString('en-GB',{hour:'2-digit',minute:'2-digit'}));
  }catch(error){if(attempt===generation)syncStatus(error.message||'Sync failed. Your local workouts are safe.');}
- finally{syncBusy=false;updateSyncButtons();}
+ finally{syncBusy=false;updateSyncButtons();if(autoSyncPending)scheduleSync();}
 }
 function updateSyncButtons(){
+ $('openSync').disabled=syncBusy;
+ $('openSync').textContent=token&&Date.now()<tokenUntil?'☁ Sync now':'☁ Connect Google Drive';
  $('connectDrive').disabled=syncBusy;$('syncNow').disabled=syncBusy||!token;$('lockSync').disabled=syncBusy||!token;
  $('clientId').disabled=!!token||syncBusy;
  $('addMachine').disabled=syncBusy||logs===null||!syncReady;
@@ -290,14 +294,20 @@ function openConflicts(){
  if(!dates.length)$('conflictList').textContent='All conflicts resolved.';
  if(!$('conflictDialog').open)$('conflictDialog').showModal();
 }
-$('machines').addEventListener('focusout',()=>{clearTimeout(syncTimer);if(token)syncTimer=setTimeout(()=>syncNow(),1800);});
-$('openSync').addEventListener('click',openSync);
+// Resume a pending edit after leaving a field; focusing alone never triggers sync.
+$('machines').addEventListener('focusout',()=>{if(autoSyncPending&&token)scheduleSync();});
+function handleSyncClick(){
+ if(syncBusy)return;
+ if(token&&Date.now()<tokenUntil)return syncNow();
+ if(token){lockSync();syncStatus('Google session expired. Connect Google Drive again.');}
+ openSync();
+}
+$('openSync').addEventListener('click',handleSyncClick);
+$('manageSync').addEventListener('click',()=>{$('about').close();openSync();});
 $('connectDrive').addEventListener('click',connectDrive);
 $('syncNow').addEventListener('click',()=>syncNow());
 $('lockSync').addEventListener('click',lockSync);
 $('conflicts').addEventListener('click',openConflicts);
-window.addEventListener('online',()=>syncNow());
-document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='visible')syncNow();});
 window.addEventListener('storage',event=>{
  if(event.key!==SYNC_STORE)return;
  // Another tab may own a different account or have pending edits. Reload explicitly.

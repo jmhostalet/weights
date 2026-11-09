@@ -37,7 +37,7 @@ If the app owner has not configured the client ID yet, the **App owner setup** s
 
 ## Everyday use
 
-- Workouts save locally while offline. When connected, edits sync after editing, on returning to the app and on reconnecting to the network. **Sync now** also checks for changes. The app must be open; there is no background service.
+- Workouts save locally while offline. When connected, actual workout changes trigger sync after a short pause. Viewing days, focusing fields, returning to the tab and reconnecting to the network do not trigger sync. Connecting Google Drive performs an initial sync to restore cloud data. **Sync now** also checks for changes manually. The app must be open; there is no background service.
 - Google's access token is kept only in memory. After reloading or when the token expires, reconnect Google Drive. No Google password is handled by Weights.
 - **Disconnect** clears the app's access token. It keeps local workouts and cloud files and does not revoke Google's app permission. You can revoke permission in your Google account settings.
 - Each browser diary binds to the first successfully synced account. Use separate browser profiles for different people to avoid mixing workouts.

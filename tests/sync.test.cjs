@@ -5,11 +5,11 @@ const vm=require('node:vm');
 const {webcrypto}=require('node:crypto');
 const source=fs.readFileSync(require('node:path').join(__dirname,'../weights.html'),'utf8').match(/<script>([\s\S]*?)<\/script>/)[1];
 function app(initial={},fetch=()=>{throw Error('Unexpected network request')}){
- const storage=new Map(Object.entries(initial)),elements=new Map();
+ const storage=new Map(Object.entries(initial)),elements=new Map(),timers=[];
  function element(){return {textContent:'',innerHTML:'',value:'',checked:false,disabled:false,open:false,dataset:{},children:[],classList:{add(){},remove(){},toggle(){}},listeners:{},addEventListener(name,fn){this.listeners[name]=fn},querySelectorAll(){return []},contains(){return false},replaceChildren(){this.children=[]},appendChild(el){this.children.push(el)},showModal(){this.open=true},close(){this.open=false}};}
  const document={getElementById(id){if(!elements.has(id))elements.set(id,element());return elements.get(id)},querySelectorAll(){return []},createElement:element,head:element(),addEventListener(){},activeElement:null};
- const ctx=vm.createContext({document,localStorage:{getItem:key=>storage.get(key)||null,setItem:(key,val)=>storage.set(key,val)},crypto:webcrypto,TextEncoder,TextDecoder,URLSearchParams,Intl,Date,Uint8Array,Map,Set,console,btoa,atob,fetch,location:{protocol:'https:'},setTimeout:()=>1,clearTimeout(){},window:{isSecureContext:true,addEventListener(){}}});
- vm.runInContext(source,ctx);return {ctx,storage,elements,run:code=>vm.runInContext(code,ctx)};
+ const ctx=vm.createContext({document,localStorage:{getItem:key=>storage.get(key)||null,setItem:(key,val)=>storage.set(key,val)},crypto:webcrypto,TextEncoder,TextDecoder,URLSearchParams,Intl,Date,Uint8Array,Map,Set,console,btoa,atob,fetch,location:{protocol:'https:'},setTimeout:fn=>{timers.push(fn);return timers.length},clearTimeout(){},window:{isSecureContext:true,addEventListener(){}}});
+ vm.runInContext(source,ctx);return {ctx,storage,elements,timers,run:code=>vm.runInContext(code,ctx)};
 }
 const workout=[{type:'biceps',sets:[{reps:12,weight:30}]}];
 function result(value){return JSON.parse(JSON.stringify(value));}
@@ -115,4 +115,26 @@ test('legacy encrypted data blocks uploads until all revisions are available loc
  await fresh.run(connect);assert.equal(uploads,0);assert.equal(fresh.run('syncState.account'),null);
  assert.match(fresh.elements.get('syncStatus').textContent,/migration/);
  const existing=app(Object.fromEntries(original.storage),fetch);await existing.run(connect);assert.equal(uploads,1);
+});
+
+test('main Sync button reuses a valid session without opening the connection menu',async()=>{
+ let requests=0;const a=app({},async()=>{requests++;return {ok:true,json:async()=>({files:[]})}});
+ await a.run("token='test';tokenUntil=Date.now()+3600000;activeAccount='A';handleSyncClick()");
+ assert.equal(requests,1);assert.equal(a.run("$('syncDialog').open"),false);
+ assert.equal(a.elements.get('openSync').textContent,'☁ Sync now');
+});
+test('main Sync button opens connection menu when the session expires',()=>{
+ const a=app();a.run("window.google={accounts:{oauth2:{}}};token='expired';tokenUntil=0;handleSyncClick()");
+ assert.equal(a.elements.get('syncDialog').open,true);assert.equal(a.run('token'),'');
+ assert.equal(a.elements.get('openSync').textContent,'☁ Connect Google Drive');
+});
+
+test('automatic sync is scheduled only by actual edits, not unchanged fields',async()=>{
+ let requests=0;const a=app({},async()=>{requests++;return {ok:true,json:async()=>({files:[]})}});
+ a.run("token='test';tokenUntil=Date.now()+3600000;activeAccount='A';persist()");
+ a.elements.get('machines').listeners.focusout();assert.equal(a.timers.length,0);assert.equal(requests,0);
+ a.run("logs[selected]=[{type:'bike',minutes:10}];persist()");
+ assert.equal(a.timers.length,1);assert.equal(requests,0);assert.equal(a.run('autoSyncPending'),true);
+ await a.timers.at(-1)();assert.equal(requests,2);assert.equal(a.run('autoSyncPending'),false);
+ const timerCount=a.timers.length;a.run('persist()');a.elements.get('machines').listeners.focusout();assert.equal(a.timers.length,timerCount);
 });
