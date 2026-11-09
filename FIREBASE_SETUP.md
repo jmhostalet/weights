@@ -70,7 +70,7 @@ The rules deny unauthenticated access, access to another user's records, and acc
 
 Publish the updated `weights.html` and `FIREBASE_SETUP.md` using the existing versioned Pages workflow. The version format remains `yymmdd.hhmmss` in Europe/Madrid time.
 
-On startup, a configured app loads Firebase and restores its saved session. If no session exists, it shows a full-screen opaque login page with only **Sign in with Google**. The application stays hidden until authentication succeeds; no offline bypass or account-settings button appears on the login page. Errors appear only when necessary. Previously authenticated users can still retain local workouts through temporary network outages.
+On startup, a configured app loads Firebase and restores its saved session. If no session exists, it shows a full-screen opaque login page with the Weights logo centered above **Sign in with Google**. The application stays hidden until authentication succeeds; no offline bypass or account-settings button appears on the login page. Errors appear only when necessary. Previously authenticated users can still retain local workouts through temporary network outages.
 
 Firebase explicitly uses `Auth.Persistence.LOCAL`: the session survives reloads and browser restarts on the same browser profile. Firebase manages token renewal. **Sync now** only synchronizes; it does not request login again. **Account settings → Log out** signs out and hides the account diary. Firebase can still require sign-in again after session revocation, browser data clearing, account security changes, or browser storage restrictions.
 

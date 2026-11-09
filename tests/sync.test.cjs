@@ -16,11 +16,21 @@ function fakeFirebase(cloud=new Map(),restoredUser=null){
   async signInWithPopup(){service.popupCount++;user={uid:'alice',email:'alice@example.com'};await callback(user)},
   async signOut(){if(service.failSignOut)throw Error('Logout failed');user=null;await callback(null)}
  };
- function collection(uid){return {
-  limit(){return this},
-  async get(options){assert.equal(options.source,'server');service.reads++;if(service.beforeRead)await service.beforeRead(uid);if(service.failRead)throw Error('Network unavailable');const rows=[...(cloud.get(uid)||new Map()).entries()];return {size:rows.length,forEach(fn){rows.forEach(([id,data])=>fn({id,data:()=>result(data)}))}}},
-  doc(id){return {async set(data){service.writes++;if(!cloud.has(uid))cloud.set(uid,new Map());const existing=cloud.get(uid).get(id);if(existing&&JSON.stringify(existing)!==JSON.stringify(data))throw Error('permission-denied');cloud.get(uid).set(id,result(data));}}}
- }};
+ function collection(uid){
+  function query(bound=10000,cursor=''){
+   return {
+    orderBy(field){assert.equal(field,'__name__');return query(bound,cursor)},
+    limit(count){assert.ok(count<=10000,'Firestore query limit must not exceed 10000');return query(count,cursor)},
+    startAfter(document){return query(bound,document.id)},
+    async get(options){
+     assert.equal(options.source,'server');service.reads++;if(service.beforeRead)await service.beforeRead(uid);if(service.failRead)throw Error('Network unavailable');
+     const rows=[...(cloud.get(uid)||new Map()).entries()].sort(([a],[b])=>a.localeCompare(b)).filter(([id])=>id>cursor).slice(0,bound);
+     const docs=rows.map(([id,data])=>({id,data:()=>result(data)}));return {size:docs.length,docs,forEach:fn=>docs.forEach(fn)};
+    }
+   };
+  }
+  return {...query(),doc(id){return {async set(data){service.writes++;if(!cloud.has(uid))cloud.set(uid,new Map());const existing=cloud.get(uid).get(id);if(existing&&JSON.stringify(existing)!==JSON.stringify(data))throw Error('permission-denied');cloud.get(uid).set(id,result(data));}}}};
+ }
  const db={collection(name){
   assert.equal(name,'users');
   return {doc(uid){return {collection(name){assert.equal(name,'weightsRevisions');return collection(uid)}}}};
@@ -161,4 +171,24 @@ test('an old account sync cannot mutate the next account after an auth change',a
  release();await pending;
  assert.equal(a.run('currentUser.uid'),'bob');assert.equal(a.run('syncState.account'),'bob');
  assert.equal(a.run('activeStore'),a.run("accountStore('bob')"));assert.equal(a.run('syncBusy'),false);
+});
+
+test('cloud reads page through more than 1000 revisions without oversized queries or omissions',async()=>{
+ const cloud=new Map([['alice',new Map()]]);let parent=null;
+ for(let i=0;i<1001;i++){
+  const id='00000000-0000-4000-8000-'+String(i).padStart(12,'0');
+  const revision={id,date:'2026-11-09',machines:workout,parents:parent?[parent]:[],time:i};
+  cloud.get('alice').set(id,{version:1,p:JSON.stringify(revision)});parent=id;
+ }
+ const {a,service}=await signedIn({},fakeFirebase(cloud));
+ assert.equal(service.reads,3);assert.equal(service.writes,0);assert.equal(a.run('syncState.records.length'),1001);
+ assert.equal(a.run("total(logs['2026-11-09'])"),360);assert.match(a.run("$('syncStatus').textContent"),/^Synced/);
+});
+test('an exact full page is followed by a final empty page',async()=>{
+ const cloud=new Map([['alice',new Map()]]);
+ for(let i=0;i<500;i++){
+  const id='00000000-0000-4000-8000-'+String(i).padStart(12,'0');
+  cloud.get('alice').set(id,{version:1,p:JSON.stringify({id,date:'2026-11-09',machines:[],parents:[],time:i})});
+ }
+ const {a,service}=await signedIn({},fakeFirebase(cloud));assert.equal(service.reads,2);assert.equal(a.run('syncState.records.length'),500);
 });

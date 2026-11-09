@@ -16,7 +16,7 @@
 
 #authGate{width:100vw;max-width:none;height:100dvh;max-height:none;margin:0;padding:24px;border:0;border-radius:0;background:var(--bg);box-shadow:none;color:var(--ink)}
 #authGate[open]{display:grid;place-items:center}#authGate::backdrop{background:var(--bg)}
-.login-content{width:100%;max-width:320px;text-align:center}.login-content .primary{margin:0}.login-content p{margin:16px 0 0}
+.login-content{width:100%;max-width:320px;text-align:center}.login-logo{width:72px;height:72px;border-radius:20px;margin:0 auto 28px;box-shadow:var(--shadow-card)}.login-logo svg{width:44px;height:44px}.login-content .primary{margin:0}.login-content p{margin:16px 0 0}
 
 .user-account{position:relative}.user-avatar{overflow:hidden;background:var(--primary-soft);color:var(--primary-dark);font-weight:700;padding:0}.user-avatar img{width:100%;height:100%;object-fit:cover;display:block}
 .user-menu{position:absolute;right:0;top:46px;z-index:20;width:240px;max-width:calc(100vw - 40px);padding:8px;background:var(--card);border:1px solid var(--border-soft);border-radius:16px;box-shadow:0 12px 32px -8px #20232e38}.user-menu[hidden]{display:none}.user-details{padding:10px 10px 12px;border-bottom:1px solid var(--border-soft);margin-bottom:5px;overflow-wrap:anywhere}.user-details strong{display:block;font-size:13px}.user-details span{display:block;font-size:11px;color:var(--ink-soft);margin-top:4px}.user-menu>button{display:block;width:100%;border:0;text-align:left;border-radius:9px;background:transparent;color:var(--ink);padding:12px 10px;font-size:13px}.user-menu>button:hover{background:var(--bg)}.user-menu .logout-action{color:var(--danger)}
@@ -52,7 +52,7 @@
 <button id="connectGoogle" class="primary">Sign in with Google</button><button id="syncNow" class="add-set" disabled>Sync now</button><button id="signOut" class="add-set" disabled>Log out</button>
 <p id="syncMessage" class="sync-message" role="status">Sign in to sync across devices.</p>
 </dialog>
-<dialog id="authGate" aria-label="Sign in to Weights"><div class="login-content"><button id="gateGoogle" class="primary" disabled>Sign in with Google</button><p id="authGateMessage" class="hidden" role="alert"></p></div></dialog>
+<dialog id="authGate" aria-label="Sign in to Weights"><div class="login-content"><span class="logo login-logo" role="img" aria-label="Weights logo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 7v10M3 9v6m15-8v10m3-8v6M6 12h12"/></svg></span><button id="gateGoogle" class="primary" disabled>Sign in with Google</button><p id="authGateMessage" class="hidden" role="alert"></p></div></dialog>
 <dialog id="importDialog" aria-labelledby="importTitle"><div class="dialog-head"><h2 id="importTitle">Import offline workouts?</h2><button class="remove" data-close="importDialog" aria-label="Close">✕</button></div><p>Only continue if this browser’s offline workouts belong to your signed-in account. They will be merged into your Firebase diary. Previous Google Drive files will stay unchanged.</p><button id="confirmImport" class="primary">Import into my account</button></dialog>
 <dialog id="conflictDialog" aria-labelledby="conflictTitle"><div class="dialog-head"><h2 id="conflictTitle">Choose a workout version</h2><button class="remove" data-close="conflictDialog" aria-label="Close">✕</button></div><p>Different devices edited the same day. Choose the version to keep for each day. Every version remains in the sync history.</p><div id="conflictList"></div></dialog>
 <script>
@@ -267,6 +267,20 @@ function timed(operation){
  let timer;return Promise.race([operation,new Promise((_,reject)=>{timer=setTimeout(()=>reject(Error('Connection timed out. Your local workouts are safe; try Sync again.')),15000);})]).finally(()=>clearTimeout(timer));
 }
 function revisionCollection(uid){return db.collection('users').doc(uid).collection('weightsRevisions');}
+// Read bounded pages: some Firestore backends reject limits above 10,000.
+async function readCloudRevisions(collection,attempt){
+ const docs=[],pageSize=500;let last=null;
+ while(true){
+  let query=collection.orderBy('__name__').limit(pageSize);
+  if(last)query=query.startAfter(last);
+  const snapshot=await timed(query.get({source:'server'}));
+  if(attempt!==generation)return null;
+  docs.push(...snapshot.docs);
+  if(docs.length>20000)throw Error('Sync history is too large.');
+  if(snapshot.size<pageSize)return docs;
+  last=snapshot.docs[snapshot.docs.length-1];
+ }
+}
 async function syncNow(){
  if(syncBusy||!currentUser||!syncReady||!db)return false;
  if($('machines').contains(document.activeElement))return false;
@@ -275,10 +289,10 @@ async function syncNow(){
  updateSyncButtons();syncStatus('Syncing workouts…');
  try{
   if(window.navigator?.onLine===false)throw Error('Offline · changes are saved on this device.');
-  const snapshot=await timed(collection.limit(20001).get({source:'server'}));if(snapshot.size>20000)throw Error('Sync history is too large.');
-  if(attempt!==generation)return false;
+  const documents=await readCloudRevisions(collection,attempt);
+  if(!documents||attempt!==generation)return false;
   const merged=new Map(syncState.records.map(r=>[r.id,r])),remoteIds=new Set();
-  snapshot.forEach(doc=>{
+  documents.forEach(doc=>{
    const payload=doc.data();if(payload.version!==1||typeof payload.p!=='string')throw Error('Invalid cloud workout. No changes were uploaded.');
    const record=JSON.parse(payload.p);if(!validRecord(record)||record.id!==doc.id)throw Error('Invalid cloud revision.');
    if(merged.has(record.id)&&JSON.stringify(merged.get(record.id))!==JSON.stringify(record))throw Error('Conflicting revision identifiers.');
