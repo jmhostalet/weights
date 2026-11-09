@@ -11,3 +11,4 @@
 - habrá un indicador final que será la suma de todo el peso total levantado ese día
 - cuando se añada una maquina, ofrecerá por defecto 12 repeticiones y el mismo peso que la vez anterior si existe
 
+
