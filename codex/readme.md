@@ -26,10 +26,10 @@ To reproduce the app, implement this specification and reuse the original assets
 
 - Static application in **one `weights.html` file**, with embedded HTML, CSS, JavaScript, and SVG.
 - Native JavaScript: no framework, custom backend, bundler, or runtime dependency installation. Firebase provides managed authentication and a shared Firestore database with per-user access rules.
-- Works locally without signing in; connecting Google is optional and enables sync.
+- Sign-in is required to access the interface. Workouts still save locally and remain available during temporary network outages for a restored authenticated session. There is no signed-out offline bypass.
 - Inter and Poppins fonts are requested from Google Fonts, with `sans-serif` fallbacks.
 - Firebase app/auth/firestore compatibility SDKs load sequentially from `https://www.gstatic.com/firebasejs/13.2.0/`. The application explicitly enables `firebase.auth.Auth.Persistence.LOCAL`. No Google Drive SDK or direct Drive OAuth flow remains.
-- Opening the HTML directly supports local use in compatible browsers; Firebase sign-in requires HTTPS or localhost. Configured apps attempt to restore the Firebase session at startup and show a sign-in gate when signed out, with a Continue offline option.
+- Opening the HTML directly supports local use in compatible browsers; Firebase sign-in requires HTTPS or localhost. Configured apps attempt to restore the Firebase session at startup and show an opaque full-screen sign-in page when signed out, containing only **Sign in with Google**. Hide the workout application until authentication is restored.
 - Development: run `python3 -m http.server 8000` and open `http://localhost:8000/weights.html`.
 - Requires a modern browser supporting `localStorage`, `<dialog>`, `fetch`, `crypto.randomUUID()`, dates, and international formatting.
 - There is no service worker, PWA installation, background sync process, or complete offline asset cache. Saving workouts offline does not mean a first visit can load the page without a network connection.
@@ -59,7 +59,7 @@ Mobile-first design with a centered column, **640 px maximum width**, `100dvh` m
 
 Screen order:
 
-1. Header with a green dumbbell logo, **Weights** title, and circular information button.
+1. Header with a green dumbbell logo, **Weights** title, and the signed-in user's circular avatar at the top right.
 2. Horizontal weekly calendar with previous/next arrows.
 3. Connect/sync action and status text.
 4. Conflict review button, shown only when conflicts exist.
@@ -207,14 +207,14 @@ Each revision stores a **complete snapshot of one day**, rather than an individu
 
 1. Load local offline history, then initialize Firebase when valid configuration exists.
 2. Load app/auth/firestore SDKs, create a named Firebase app `weights`, explicitly set local auth persistence, and subscribe to `onAuthStateChanged`.
-3. While checking the session, show **Restoring your session…**. A configured signed-out app shows **Welcome to Weights** with **Sign in with Google**, **Continue offline**, and **Account settings**.
+3. Keep the app hidden from the initial HTML until the session is restored. The signed-out page is a full-viewport opaque screen showing only **Sign in with Google**, centered with a maximum button width of 320 px. No welcome heading, explanatory text, offline bypass, account settings action, translucent backdrop, or underlying workout UI. Disable the button while restoring the session. Show an error message only when an error occurs; announce it accessibly.
 4. Sign in through `GoogleAuthProvider` and `signInWithPopup`. Do not open an OAuth popup automatically on page load; the user activates the sign-in button. Restoring an existing session requires no popup.
 5. On authentication change, invalidate old operations, switch to the correct project/UID local cache, refresh the UI, and initially sync that account. Do not merge another user's local cache.
 6. Signed in: the top button is **☁ Sync now** and directly syncs. Signed out: **Sign in with Google** opens account settings.
-7. The information dialog contains **Manage account**. Account settings show the current identity, **Sync now**, and **Log out**.
+7. The top-right avatar shows the Google profile photo, or initials if no usable photo exists or loading fails. Clicking it opens a right-aligned dropdown with the user's name/email and **Account settings**, **About Weights**, and **Log out**. Close on outside click, focus leaving, Escape, or account change; Escape returns focus to the avatar. Keep `aria-expanded` and accessible account labels accurate. **Log out** directly invokes the existing Firebase logout. The about dialog still contains **Manage account**, and account settings retain sync/logout actions.
 8. **Log out** calls Firebase `signOut()` and returns to the sign-in gate and offline diary. Preserve the signed-out user's cached history, including unsynced edits, under its separate project/UID key. Do not show it to a different account or copy it into guest history. If logout fails, keep the current session and report the error.
 
-Without configuration, the app still supports local tracking and exposes **App owner setup**. It must not invent project values or fall back to MacroDiario's project.
+Without configuration, the login page reports that the app owner must configure Firebase. Do not expose developer setup or an offline bypass on the login page, invent project values, or fall back to MacroDiario's project. Publish the embedded configuration before users sign in.
 
 ### When to sync
 
