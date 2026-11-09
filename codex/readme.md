@@ -87,7 +87,7 @@ El favicon es un **SVG integrado como data URI**, de 32 × 32, fondo verde princ
 - `Machines` incluye la bicicleta si está añadida. `Sets` cuenta solo series de fuerza. `Warm-up` muestra los minutos de bicicleta.
 - El resumen refleja la fecha seleccionada, aunque las etiquetas actuales incluyan la palabra “today”.
 
-## 5. Máquinas, series y valores predeterminados
+## 5. Máquinas, series y valores predeterminados 
 
 El botón **+ Add machine** abre un diálogo **Add machine**, con este orden y estos identificadores estables:
 
