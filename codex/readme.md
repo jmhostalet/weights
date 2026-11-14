@@ -4,7 +4,7 @@ Last reviewed: November 9, 2026. **This document and all application instruction
 
 ## 1. Purpose and reference sources
 
-Weights is a personal weight-training diary. Users record machines, sets, repetitions, kilograms, and cycling minutes per day, view their lifting volume, and sync devices through Firebase Authentication and Cloud Firestore with a persistent Google sign-in session.
+Weights is a personal weight-training diary. Users record machines, sets, repetitions, kilograms, and bike/treadmill warm-up minutes per day, view their lifting volume, and sync devices through Firebase Authentication and Cloud Firestore with a persistent Google sign-in session.
 
 Repository references:
 
@@ -87,7 +87,7 @@ The favicon is a **32 × 32 SVG embedded as a data URI**, with a primary-green b
 - Prefix the date with **Today ·** only for today, followed by the weekday, day, month, and year in English.
 - Weekly summary: sum the volume of the seven visible days. Its current label is **This week**, including when browsing another week.
 - Daily summary: **Total weight lifted today**, unit kg, and **Machines**, **Sets**, **Warm-up** counters.
-- `Machines` includes the bike when added. `Sets` counts strength-training sets only. `Warm-up` displays cycling minutes.
+- `Machines` includes each warm-up activity when added. `Sets` counts strength-training sets only. `Warm-up` displays the sum of bike and treadmill minutes.
 - The summary reflects the selected date, even though some current labels contain the word “today.”
 
 ## 5. Machines, sets, and defaults
@@ -97,11 +97,14 @@ The favicon is a **32 × 32 SVG embedded as a data URI**, with a primary-green b
 | ID | Display name | Recorded data |
 |---|---|---|
 | `bike` | Warm-up bike | Minutes |
+| `treadmill` | Warm-up treadmill | Minutes |
 | `abs` | Abdominals | Sets with reps and weight |
 | `pulldown` | Lat pulldown | Sets with reps and weight |
 | `quads` | Quadriceps | Sets with reps and weight |
 | `calves` | Calves | Sets with reps and weight |
 | `biceps` | Biceps | Sets with reps and weight |
+| `barbell` | Barbell | Sets with reps and total weight, including the bar and plates |
+| `dumbbells` | Dumbbells | Sets with reps and combined weight used |
 
 - Allow only one instance of each machine per day. Disable already-added machines in the picker with **Already added**.
 - Each picker option and machine card has a line-art SVG representing the actual exercise. Cycling, abdominals, pulldown, quadriceps, and biceps use distinct person/equipment drawings. **Calves must use exactly the same icon as Quadriceps**, as explicitly requested by the user.
@@ -114,7 +117,9 @@ The favicon is a **32 × 32 SVG embedded as a data URI**, with a primary-green b
 - Each row displays the set number starting at 1, reps, weight, and a remove action.
 - Removing a set is immediate; remaining sets are renumbered. A machine may have no sets.
 - Removing a machine requires a **Remove machine?** confirmation dialog with **Remove machine** and **Keep machine**. It affects only the selected day.
-- The bike starts at **0 minutes**; its numeric field accepts 0–1440 minutes in 0.1 increments. It has no sets or kilograms.
+- Bike and treadmill warm-ups each start at **0 minutes**; their numeric fields accept 0–1440 minutes in 0.1 increments. They have no sets or kilograms. Both may be recorded on the same day, and the warm-up summary sums their minutes. Use unique field IDs per warm-up.
+- Barbell and dumbbell entries follow the existing 12-rep default, historical weight reuse, 20–70 kg dropdown and strength-volume calculation. Barbell weight includes bar and plates; dumbbell weight is the combined weight used, with no automatic doubling. Explain this convention in the app help.
+- Each new option has its own SVG: a runner on a treadmill, a horizontal barbell, and a pair of dumbbells. The picker scrolls on shorter screens.
 - Save valid field edits through `change`; invalid input must not enter the data model. Display native validation and allow correction.
 - Focusing a field or entering its existing value again must not create a data change.
 
@@ -122,7 +127,7 @@ The favicon is a **32 × 32 SVG embedded as a data URI**, with a primary-green b
 
 - On a selected day with no entries, show **Copy last workout** when an earlier day with entries exists. Display the source date below it as **From D Month YYYY**.
 - Search for the most recent nonempty workout strictly before the selected date. Skip empty days and never copy a later date, including when browsing historical days.
-- Copy the complete workout: machine order, all sets, actual rep counts and weights, and bike minutes. The 12-rep default applies to adding new sets, not copying existing ones.
+- Copy the complete workout: machine order, all sets, actual rep counts and weights, and bike/treadmill minutes. The 12-rep default applies to adding new sets, not copying existing ones.
 - Deep-copy the data so editing the copied workout cannot change its source.
 - Never overwrite a day with entries. Hide the action when the day already has machines or there is no earlier workout; disable it while syncing or storage is unavailable.
 - Save the copy as a normal new revision for the selected day, refresh summaries/calendar, and schedule automatic sync under the existing actual-change rules. Do not require a separate save or confirmation.
@@ -136,7 +141,7 @@ daily volume = sum of all strength-machine volumes for the day
 weekly volume = sum of daily volumes across the seven visible days
 ```
 
-Example: 12 reps × 30 kg = **360 kg**. Two identical sets total **720 kg**. Cycling is tracked separately and never adds kilograms.
+Example: 12 reps × 30 kg = **360 kg**. Two identical sets total **720 kg**. Bike and treadmill warm-ups are tracked separately and never add kilograms.
 
 Display the daily total in the top summary and again at the bottom; also display each strength machine's subtotal.
 
@@ -218,7 +223,7 @@ Without configuration, the login page reports that the app owner must configure 
 
 ### When to sync
 
-- Actual changes only: adding/editing/removing machines or sets, cycling minutes, copying a previous workout, importing offline workouts, and resolving conflicts.
+- Actual changes only: adding/editing/removing machines or sets, warm-up minutes, copying a previous workout, importing offline workouts, and resolving conflicts.
 - Save locally first, debounce for **1800 ms**, and avoid generating revisions or sync requests for unchanged values.
 - Do not sync merely when browsing dates, focusing/blurring without changes, returning to the tab, or reconnecting the network.
 - Deliberate exceptions: one initial sync after sign-in/session restoration and the manual **Sync now** action.

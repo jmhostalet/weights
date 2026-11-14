@@ -192,3 +192,26 @@ test('an exact full page is followed by a final empty page',async()=>{
  }
  const {a,service}=await signedIn({},fakeFirebase(cloud));assert.equal(service.reads,2);assert.equal(a.run('syncState.records.length'),500);
 });
+
+test('barbell, dumbbells and treadmill use correct defaults and combined warm-up totals',()=>{
+ const a=app();
+ for(const type of ['barbell','dumbbells','treadmill','bike']){
+  a.elements.get('choices').listeners.click({target:{closest:()=>({disabled:false,dataset:{addMachine:type}})}});
+ }
+ assert.equal(a.run('validLogs(logs)'),true);
+ assert.deepEqual(result(a.run("day().find(m=>m.type==='barbell').sets")),[{reps:12,weight:20}]);
+ assert.deepEqual(result(a.run("day().find(m=>m.type==='dumbbells').sets")),[{reps:12,weight:20}]);
+ assert.deepEqual(result(a.run("day().find(m=>m.type==='treadmill')")),{type:'treadmill',minutes:0});
+ a.run("day().find(m=>m.type==='treadmill').minutes=7.5;day().find(m=>m.type==='bike').minutes=10;persist();render()");
+ assert.equal(a.run('total(day())'),480);assert.equal(a.run("$('minutes').textContent"),'17.5 min');assert.equal(a.run("$('setCount').textContent"),2);
+ assert.ok(a.run("$('machines').innerHTML").includes('warmupMinutes-bike'));assert.ok(a.run("$('machines').innerHTML").includes('warmupMinutes-treadmill'));
+ const restored=app(Object.fromEntries(a.storage));assert.equal(restored.run('validLogs(logs)'),true);assert.equal(restored.run('total(day())'),480);
+});
+test('copy and Firebase sync preserve treadmill and free-weight entries',async()=>{
+ const {a,service}=await signedIn();
+ a.run("selected='2026-11-09';logs[selected]=[{type:'treadmill',minutes:12},{type:'barbell',sets:[{reps:8,weight:40}]},{type:'dumbbells',sets:[{reps:10,weight:24}]}];persist();selected='2026-11-10';copyLastWorkout()");
+ assert.equal(a.run('total(day())'),560);await a.run('syncNow()');
+ const second=await signedIn({},fakeFirebase(service.cloud));second.a.run("selected='2026-11-10'");
+ assert.deepEqual(result(second.a.run('day()')),result(a.run('day()')));
+ assert.equal(second.a.run("day()[0].minutes"),12);
+});
