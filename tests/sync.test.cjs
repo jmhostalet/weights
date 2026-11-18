@@ -215,3 +215,44 @@ test('copy and Firebase sync preserve treadmill and free-weight entries',async()
  assert.deepEqual(result(second.a.run('day()')),result(a.run('day()')));
  assert.equal(second.a.run("day()[0].minutes"),12);
 });
+
+test('Deltoids uses the machine stack and restores weights outside the standard range',()=>{
+ const a=app();
+ a.elements.get('addMachine').listeners.click();
+ assert.match(a.elements.get('choices').innerHTML,/data-add-machine="deltoids"/);
+ a.elements.get('choices').listeners.click({target:{closest:()=>({disabled:false,dataset:{addMachine:'deltoids'}})}});
+ const options=Array.from(a.elements.get('machines').innerHTML.matchAll(/<option value="(\d+)"/g),match=>Number(match[1]));
+ assert.deepEqual(options,[5,9,14,18,23,27,32,36,41,45,50,55,59,64,68,73,77,82,86,91,95,100,105,109]);
+ assert.match(a.elements.get('machines').innerHTML,/<option value="23" selected>/);
+ a.run("mutate(()=>day()[0].sets.push({reps:12,weight:5},{reps:12,weight:109}))");
+ const restored=app(Object.fromEntries(a.storage));
+ assert.deepEqual(result(restored.run('day()[0].sets.map(set=>set.weight)')),[23,5,109]);
+ assert.equal(restored.run("defaultSet('deltoids').weight"),109);
+ assert.equal(restored.run("validLogs({[selected]:[{type:'deltoids',sets:[{reps:12,weight:20}]}]})"),false);
+});
+
+test('History marks logged dates and pages back to older workouts',()=>{
+ const a=app();
+ a.run(`
+  const historyToday=iso(new Date());
+  const oldWorkoutDate=dateOf(historyToday);
+  oldWorkoutDate.setDate(1);
+  oldWorkoutDate.setMonth(oldWorkoutDate.getMonth()-13);
+  logs[historyToday]=[{type:'bike',minutes:15}];
+  logs[iso(oldWorkoutDate)]=[{type:'bike',minutes:10}];
+ `);
+ a.elements.get('openHistory').listeners.click();
+ assert.equal(a.elements.get('historyDialog').open,true);
+ const months=a.elements.get('historyMonths');
+ assert.equal((months.innerHTML.match(/class="history-day has-workout"/g)||[]).length,1);
+ assert.match(months.innerHTML,/class="history-day"[^>]*No workout logged/);
+ assert.equal(a.elements.get('newerHistory').disabled,true);
+ assert.equal(a.elements.get('olderHistory').disabled,false);
+ a.elements.get('olderHistory').listeners.click();
+ assert.equal((months.innerHTML.match(/class="history-day has-workout"/g)||[]).length,1);
+ const olderLabel=a.run('historyDayFormat.format(oldWorkoutDate)');
+ assert.ok(months.innerHTML.includes(olderLabel+' · Workout logged'));
+ assert.equal(a.elements.get('olderHistory').disabled,true);
+ a.elements.get('newerHistory').listeners.click();
+ assert.equal(a.elements.get('newerHistory').disabled,true);
+});
